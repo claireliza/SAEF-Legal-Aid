@@ -1,6 +1,14 @@
-// SOURCE: https://stackoverflow.com/questions/12036966/generic-tree-implementation-in-javascript
+/* Contains all survey questions and definitions. */
 
+// SOURCE: https://stackoverflow.com/questions/12036966/generic-tree-implementation-in-javascript
 function Option() {
+    /*
+    An object that allows all the questions in the survey to be organized into a tree.
+        text: the text that appears on the button you click to indicate your response
+        question: the followup question that appears on the next page if you select that button
+        answers: an array of Option objects whose 'text' values appear on a new set of buttons as potential answers to the new 'question'
+        resources: an array of strings that is non-empty for the last Option in the survey, naming organizations that could help with the legal issue depending on your previous responses
+    */
     this.text = "";
     this.question = "";
     this.answers = [];
@@ -33,7 +41,13 @@ function Option() {
     };
 }
 
+
 const surveyArray = [
+    /*
+    A nested array of objects with each question in the prototype and its potential answers. 
+    It's too long and needs to go in another file.
+    Objects at the very end of the question chain have the 'resources' property defined, listing the names of legal aid organizations exactly as they are referenced in the <div> elements that contain information about those organizations.
+    */
     {
         text: "Begin Survey",
         question: "What do you need help with?",
@@ -245,7 +259,12 @@ const surveyArray = [
     }
 ];
 
+
 const definitions = {
+    /*
+    A dictionary/object of legal definitions. Each key is a term exactly as it is contained in an <a href="#!"> tag, and the value of that key is that term's definition.
+    It's also too long and needs to go in another file.
+    */
     "child support": "Child support refers to financial contributions made by a legal parent of a child(s) to the other legal parent in contribution towards the cost of caring for and raising a minor child. Generally speaking, the parent that makes child support payments is the child's non-custodial parent, while the parent that receives the payments is the child's custodial parent. ",
     "custodial parent": "<p>The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child.In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child.Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental; responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental;responsibilties has been distributed evenly – both parents would be the child's custodial parent.</p>",
     "legal parentage": "<p>A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially established [establishing parentage].</p> <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born(unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
@@ -260,7 +279,11 @@ const definitions = {
     "SSI": "<p>Supplemental Security Income (SSI) is a need-based program offered by the federal government that provides monthly cash benefits to the following low- income individuals:</p> <ul><li>those aged 65 or older</li> <li>those with certain documented physical or mental disabilities</li> <li>those who are blind; and</li> <li>in some cases, minor children that are disabled or blind</li></ul> <p>You can visit the Social Security Administration's website here [https://www.ssa.gov/ssi/text-eligibility-ussi.htm] to see if you are eligible to receive SSI.</p> <p>It is important to note that SSI disability payments CANNOT be garnished or withheld [income withholding]for the purposes of making child support payments.</p>"
 };
 
+
 function makeSurvey(array) {
+    /* 
+    A function that takes an array of objects (surveyArray) and converts it into a tree of Option objects.
+    */
     const o = new Option();
 
     for (let i = 0; i < array.length; i++) {
@@ -279,7 +302,11 @@ function makeSurvey(array) {
     return o;
 }
 
+
 function setupBackButton(option) {
+    /*
+    Takes whatever branch of the Option tree you are on and creates a button that will take you to the branch that came before it, taking you one step back in the survey. If you go back to the beginning, this button will take you to start_survey.html.
+    */
     const backButtonArea = document.getElementById("back");
     const backButton = document.getElementById("back_button");
     const newBackButton = document.createElement("input");
@@ -300,8 +327,15 @@ function setupBackButton(option) {
     backButtonArea.replaceChild(newBackButton, backButton);
 }
 
+
 function setupProgressBar(option) {
+    /* 
+    Takes whatever branch of the Option tree you are on and updates the progress bar to indicate about how far you have left to go.
+    */
     function countQuestionsLeft(o, counter) {
+        /* 
+        Calculates the maximum number of questions you could have left to answer from this point in the tree.
+         */
         const answers = o.getAnswers();
         if (answers.length === 0) {
             return counter;
@@ -314,6 +348,9 @@ function setupProgressBar(option) {
     }
 
     function countQuestionsDone(o, counter) {
+        /* 
+        Calculates the number of questions you have already done.
+         */
         if (o.getLastOption() === null) {
             return counter;
         }
@@ -337,6 +374,9 @@ function setupProgressBar(option) {
 }
 
 function replaceButtons(option) {
+    /* 
+    Replaces an old set of answer buttons with the ones for a different question.
+     */
     // Remove old buttons
     const buttonArea = document.getElementById("buttons");
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
@@ -364,6 +404,9 @@ function replaceButtons(option) {
 }
 
 function setupLinks(div) {
+    /* 
+    Finds all the <a href="#!"> tags that are descendants of a given <div> tag and makes it so that when you click on the link, it'll retrieve its definition from the dictionary of terms and display that definition in a popup.
+     */
     // SOURCE: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
     const links = div.querySelectorAll("a");
     for (const a of links) {
@@ -377,14 +420,21 @@ function setupLinks(div) {
 }
 
 function showResources(resources) {
+    /* 
+    Displays all the <div> elements with information about resources that are specified in the string array 'resources'.
+     */
     for (const r of resources) {
         document.getElementById(r).style.display = "initial";
     }
 }
 
 function toggleResources(option) {
+    /* 
+    Decides whether it's time to end the survey and display information about legal aid resources.
+     */
     const resources = document.getElementById("resources");
     if (option.getResources() !== undefined) {
+        // This branch of the Option tree has the 'resources' property, which means that it's the end of the survey and there are resources to recommend.
         resources.style.display = "initial";
         resources.firstElementChild.style.display = "initial";
         resources.lastElementChild.style.display = "initial";
@@ -403,6 +453,9 @@ function toggleResources(option) {
 }
 
 function setup(option) {
+    /* 
+    Sets up all visble elements on the page.
+     */
     // Set up back button
     setupBackButton(option);
 

@@ -1,4 +1,7 @@
+/* Contains feedback questions. */
+
 const reviewSurveyArray = [
+    /* An array of objects, each with a property for a question and an array of possible answers. */
     {
         question: "How much of this survey were you able to complete based on your previous knowledge of Family Law?",
         answers: ["100%", "75%", "50%", "25%", "0%"],
@@ -22,6 +25,9 @@ const reviewSurveyArray = [
 ];
 
 function toggleThankYou(array, position) {
+    /* 
+    Decides whether it's time to display the thank you message at the end of the feedback survey.
+     */
     const thankYou = document.getElementById("thank_you");
     if (position === array.length) {
         document.getElementById("question").style.display = "none";
@@ -39,6 +45,7 @@ function toggleThankYou(array, position) {
 }
 
 function setupBackButton(array, position) {
+    /* Takes whatever question in reviewSurveyArray you are on and creates a button that will take you to the branch that came before it, taking you one step back in the survey. If you go back to the beginning, this button will take you to survey.html. */
     const backButtonArea = document.getElementById("back");
     const backButton = document.getElementById("back_button");
     const newBackButton = document.createElement("input");
@@ -60,6 +67,9 @@ function setupBackButton(array, position) {
 }
 
 function setupProgressBar(array, position) {
+    /*
+    Takes whatever question in the reviewSurveyArray you are on and updates the progress bar to indicate how far you have left to go.
+    */
     const progressBar = document.getElementById("progress_bar");
     const questionsDone = position;
     const questionsLeft = reviewSurveyArray.length - questionsDone;
@@ -74,6 +84,9 @@ function setupProgressBar(array, position) {
 }
 
 function replaceButtons(array, position) {
+    /*
+    Replaces an old set of answer buttons with the ones for a different question.
+    */
     // Remove old buttons
     const buttonArea = document.getElementById("buttons");
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
@@ -99,8 +112,11 @@ function replaceButtons(array, position) {
 }
 
 function setup(array, position) {
+    /*
+    Sets up all visible elements on the page.
+    */
     // Decide whether it's the end of the survey
-    toggleThankYou(array, position)
+    toggleThankYou(array, position);
 
     // Set up back button
     setupBackButton(array, position);

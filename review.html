@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Survey</title>
+    <!-- Displays all website feedback survey questions. -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="back">
       <input type="submit" value="Back" id="back_button" />
     </div>
+    <!-- Progress bar: it's values are set and updated in setupProgressBar() survey.js -->
     <progress max="0" value="0" id="progress_bar">
       No questions answered yet.
     </progress>
+    <!-- Survey question and options: set and updated in setup() and replaceButtons() in survey.js -->
     <h2 id="question"></h2>
     <div id="buttons"></div>
 
+    <!-- This is hidden for most of the survey because its CSS 'display' property is set to "none" in review.js and reset to 'initial' at the end of the survey -->
     <div id="thank_you">
       <h2>Thanks for your feedback!</h2>
     </div>

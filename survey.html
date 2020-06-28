@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Survey</title>
+    <!-- Displays all main survey questions and recommended organizations at the end of the survey. -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -10,14 +11,18 @@
       <input type="submit" value="Back" id="back_button" />
     </div>
 
+    <!-- Progress bar: it's values are set and updated in setupProgressBar() survey.js -->
     <progress max="0" value="0" id="progress_bar">
       No questions answered yet.
     </progress>
+    <!-- Survey question and options: set and updated in setup() and replaceButtons() in survey.js -->
     <div id="question_area">
       <h2 id="question"></h2>
       <div id="buttons"></div>
     </div>
 
+    <!-- This is hidden for most of the survey because its CSS 'display' property is set to "none" in survey.js and reset to 'initial' at the end of the survey -->
+    <!-- The function addEventListner() takes those dead <a href="#!"> links and makes them show the definitions of the hyperlinked words they're wrapped around when they're clicked in setupLinks() in survey.js -->
     <div id="resources">
       <h3>
         Thank you for taking the time to complete this survey, we feel confident
