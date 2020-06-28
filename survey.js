@@ -277,7 +277,7 @@ function countQuestionsLeft(option, counter) {
         return counter;
     } else {
         counter += 1;
-        return Math.max(... answers.map((a) => {
+        return Math.max(...answers.map((a) => {
             return countQuestionsLeft(a, counter);
         }));
     }
@@ -289,7 +289,7 @@ function countQuestionsDone(option, counter) {
     }
     else {
         counter += 1;
-        return countQuestionsDone(option.getLastOption(), counter)
+        return countQuestionsDone(option.getLastOption(), counter);
     }
 }
 
@@ -299,22 +299,14 @@ function setupProgressBar(option) {
     const questionsDone = countQuestionsDone(option, 0);
     progressBar.setAttribute("max", `${questionsLeft + questionsDone}`);
     progressBar.setAttribute("value", `${questionsDone}`);
-    progressBar.innerHTML = `${(questionsLeft === 1) ?
-        "Just 1 question" : `At most ${questionsLeft} questions`} left.`;
-    console.log(progressBar.innerHTML);
+    progressBar.innerHTML = `${(questionsLeft < 2) ?
+        `${(questionsLeft === 1) ?
+            "Just one question"
+            : "No questions"}`
+        : `At most ${questionsLeft} questions`} left.`;
 }
 
-function setup(option) {
-    // Set up back button
-    setupBackButton(option);
-
-    // Update progress bar
-    setupProgressBar(option);
-
-    // Change question
-    const q = document.getElementById("question");
-    q.innerHTML = option.question;
-
+function replaceButtons(option) {
     // Remove old buttons
     const buttonArea = document.getElementById("buttons");
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
@@ -336,10 +328,28 @@ function setup(option) {
         }
         );
 
+        // Insert new button
         buttonArea.appendChild(button);
     }
 }
 
+function setup(option) {
+    // Set up back button
+    setupBackButton(option);
+
+    // Update progress bar
+    setupProgressBar(option);
+
+    // Change question
+    const q = document.getElementById("question");
+    q.innerHTML = option.question;
+
+    // Remove old buttons and create new buttons
+    replaceButtons(option);
+}
+
 setup(survey);
+
+
 
 
