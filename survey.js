@@ -1,10 +1,10 @@
 // SOURCE: https://stackoverflow.com/questions/12036966/generic-tree-implementation-in-javascript
 
-function Option(text, question) {
-
-    this.text = text;
-    this.question = question;
+function Option() {
+    this.text = "";
+    this.question = "";
     this.answers = [];
+    this.resources = [];
     this.lastOption = null;
 
     this.setLastOption = function (option) {
@@ -26,6 +26,10 @@ function Option(text, question) {
 
     this.removeAnswers = function () {
         this.answers = [];
+    };
+
+    this.getResources = function () {
+        return this.resources;
     };
 }
 
@@ -84,11 +88,13 @@ const surveyArray = [
                                                                                         text: "Yes",
                                                                                         question: "",
                                                                                         answers: [],
+                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                                     },
                                                                                     {
                                                                                         text: "No",
                                                                                         question: "",
                                                                                         answers: [],
+                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                                     },
                                                                                 ],
                                                                             },
@@ -100,11 +106,13 @@ const surveyArray = [
                                                                                         text: "Yes",
                                                                                         question: "",
                                                                                         answers: [],
+                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                                     },
                                                                                     {
                                                                                         text: "No",
                                                                                         question: "",
                                                                                         answers: [],
+                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                                     },
                                                                                 ],
                                                                             },
@@ -125,11 +133,13 @@ const surveyArray = [
                                                                         text: "Yes",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                     {
                                                                         text: "No",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                 ],
                                                             },
@@ -141,11 +151,13 @@ const surveyArray = [
                                                                         text: "Yes",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                     {
                                                                         text: "No",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                 ],
                                                             },
@@ -157,11 +169,13 @@ const surveyArray = [
                                                                         text: "Yes",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                     {
                                                                         text: "No",
                                                                         question: "",
                                                                         answers: [],
+                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                                     },
                                                                 ],
                                                             },
@@ -238,6 +252,9 @@ function makeSurvey(array) {
         const e = array[i];
         o.text = e.text;
         o.question = e.question;
+        if (o.hasOwnProperty("resources")) {
+            o.resources = e.resources;
+        }
         for (let j = 0; j < e.answers.length; j++) {
             const f = [e.answers[j]];
             o.addAnswer(makeSurvey(f));
@@ -247,8 +264,12 @@ function makeSurvey(array) {
     return o;
 }
 
-const survey = makeSurvey(surveyArray);
-// console.log(survey);
+function showResources(resources) {
+    for (const r of resources) {
+        console.log(r);
+        document.getElementById(r).style.display = "initial";
+    }
+}
 
 function setupBackButton(option) {
     const backButtonArea = document.getElementById("back");
@@ -271,34 +292,35 @@ function setupBackButton(option) {
     backButtonArea.replaceChild(newBackButton, backButton);
 }
 
-function countQuestionsLeft(option, counter) {
-    const answers = option.getAnswers();
-    if (answers.length === 0) {
-        return counter;
-    } else {
-        counter += 1;
-        return Math.max(...answers.map((a) => {
-            return countQuestionsLeft(a, counter);
-        }));
-    }
-}
-
-function countQuestionsDone(option, counter) {
-    if (option.getLastOption() === null) {
-        return counter;
-    }
-    else {
-        counter += 1;
-        return countQuestionsDone(option.getLastOption(), counter);
-    }
-}
-
 function setupProgressBar(option) {
+    function countQuestionsLeft(o, counter) {
+        const answers = o.getAnswers();
+        if (answers.length === 0) {
+            return counter;
+        } else {
+            counter += 1;
+            return Math.max(...answers.map((a) => {
+                return countQuestionsLeft(a, counter);
+            }));
+        }
+    }
+
+    function countQuestionsDone(o, counter) {
+        if (o.getLastOption() === null) {
+            return counter;
+        }
+        else {
+            counter += 1;
+            return countQuestionsDone(o.getLastOption(), counter);
+        }
+    }
+
     const progressBar = document.getElementById("progress_bar");
     const questionsLeft = countQuestionsLeft(option, 0);
     const questionsDone = countQuestionsDone(option, 0);
     progressBar.setAttribute("max", `${questionsLeft + questionsDone}`);
     progressBar.setAttribute("value", `${questionsDone}`);
+    // SOURCE: https://stackoverflow.com/questions/18269286/shorthand-for-if-else-statement
     progressBar.innerHTML = `${(questionsLeft < 2) ?
         `${(questionsLeft === 1) ?
             "Just one question"
@@ -346,9 +368,22 @@ function setup(option) {
 
     // Remove old buttons and create new buttons
     replaceButtons(option);
+
+    // Show resources if the survey is over
+    const resources =  document.getElementById("resources")
+    if (option.getResources() !== undefined) {
+        resources.style.display = "initial";
+        resources.firstElementChild.style.display = "initial";
+        showResources(option.getResources());
+    } else {
+        resources.style.display = "none";
+        for (const r of resources.children) {
+            r.style.display = "none";
+        }
+    }
 }
 
-setup(survey);
+setup(makeSurvey(surveyArray));
 
 
 
