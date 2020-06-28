@@ -271,9 +271,45 @@ function setupBackButton(option) {
     backButtonArea.replaceChild(newBackButton, backButton);
 }
 
+function countQuestionsLeft(option, counter) {
+    const answers = option.getAnswers();
+    if (answers.length === 0) {
+        return counter;
+    } else {
+        counter += 1;
+        return Math.max(... answers.map((a) => {
+            return countQuestionsLeft(a, counter);
+        }));
+    }
+}
+
+function countQuestionsDone(option, counter) {
+    if (option.getLastOption() === null) {
+        return counter;
+    }
+    else {
+        counter += 1;
+        return countQuestionsDone(option.getLastOption(), counter)
+    }
+}
+
+function setupProgressBar(option) {
+    const progressBar = document.getElementById("progress_bar");
+    const questionsLeft = countQuestionsLeft(option, 0);
+    const questionsDone = countQuestionsDone(option, 0);
+    progressBar.setAttribute("max", `${questionsLeft + questionsDone}`);
+    progressBar.setAttribute("value", `${questionsDone}`);
+    progressBar.innerHTML = `${(questionsLeft === 1) ?
+        "Just 1 question" : `At most ${questionsLeft} questions`} left.`;
+    console.log(progressBar.innerHTML);
+}
+
 function setup(option) {
     // Set up back button
     setupBackButton(option);
+
+    // Update progress bar
+    setupProgressBar(option);
 
     // Change question
     const q = document.getElementById("question");
@@ -300,7 +336,6 @@ function setup(option) {
         }
         );
 
-        // Add new buttons
         buttonArea.appendChild(button);
     }
 }
