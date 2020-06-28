@@ -40,11 +40,11 @@ const surveyArray = [
         answers: [
             {
                 text: "Child Support",
-                question: "What action would you like to take for <a href='#'>child support</a>?",
+                question: "What action would you like to take for <a href='#!'>child support</a>?",
                 answers: [
                     {
                         text: "Obtain",
-                        question: "Are you the child's <a href='#'>custodial parent</a>?",
+                        question: "Are you the child's <a href='#!'>custodial parent</a>?",
                         answers: [
                             {
                                 text: "Yes",
@@ -56,11 +56,11 @@ const surveyArray = [
                                         answers: [
                                             {
                                                 text: "Yes",
-                                                question: "Has the other parent's <a href='#'>legal parentage</a> been established?",
+                                                question: "Has the other parent's <a href='#!'>legal parentage</a> been established?",
                                                 answers: [
                                                     {
                                                         text: "Yes",
-                                                        question: "How was other parent's <a href='#'>legal parentage</a> <a href='#'>established</a>?",
+                                                        question: "How was other parent's <a href='#!'>legal parentage</a> <a href='#!'>established</a>?",
                                                         answers: [
                                                             {
                                                                 text: "Marriage",
@@ -82,7 +82,7 @@ const surveyArray = [
                                                                         answers: [
                                                                             {
                                                                                 text: "Yes",
-                                                                                question: "Does the child's other <a href='#'>legal parent</a> live in the same state as you?",
+                                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
                                                                                 answers: [
                                                                                     {
                                                                                         text: "Yes",
@@ -100,7 +100,7 @@ const surveyArray = [
                                                                             },
                                                                             {
                                                                                 text: "No",
-                                                                                question: "Does the child's other <a href='#'>legal parent</a> live in the same state as you?",
+                                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
                                                                                 answers: [
                                                                                     {
                                                                                         text: "Yes",
@@ -127,7 +127,7 @@ const surveyArray = [
                                                             },
                                                             {
                                                                 text: "VAP",
-                                                                question: "Does the child's other <a href='#'>legal parent</a> live in the same state as you?",
+                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
                                                                 answers: [
                                                                     {
                                                                         text: "Yes",
@@ -145,7 +145,7 @@ const surveyArray = [
                                                             },
                                                             {
                                                                 text: "Not Sure",
-                                                                question: "Does the child's other <a href='#'>legal parent</a> live in the same state as you?",
+                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
                                                                 answers: [
                                                                     {
                                                                         text: "Yes",
@@ -163,7 +163,7 @@ const surveyArray = [
                                                             },
                                                             {
                                                                 text: "Other",
-                                                                question: "Does the child's other <a href='#'>legal parent</a> live in the same state as you?",
+                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
                                                                 answers: [
                                                                     {
                                                                         text: "Yes",
@@ -248,10 +248,16 @@ const surveyArray = [
 const definitions = {
     "child support": "Child support refers to financial contributions made by a legal parent of a child(s) to the other legal parent in contribution towards the cost of caring for and raising a minor child. Generally speaking, the parent that makes child support payments is the child's non-custodial parent, while the parent that receives the payments is the child's custodial parent. ",
     "custodial parent": "<p>The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child.In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child.Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental; responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental;responsibilties has been distributed evenly – both parents would be the child's custodial parent.</p>",
-    "legal parentage": "<p>A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially established [establishing parentage].</p> <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ol><li>you are married to or in a civil union with the child's biological mother at the time the child is born(unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ol>",
-    "established": "<p>Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways:</p> <ol><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ol>",
-    "legal parent": "<p>The legal parent of a child is a parent with a legally established [establishing parentage]parent- child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate.</p> <p>A child's legal parent is allowed to do the following:</p> <ol><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ol> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ol><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ol>",
-    "LINK/SNAP": "<p>The Supplemental Nutritional Assistance Program (SNAP), also known as \"food stamps\", is a program managed in Illinois by the Illinois Department of Human Services (DHS) that provides financial assistance for the costs of buying food.</p> <p>If you are eligible for SNAP cash benefits, you are also eligible to receive an Illinois LINK card, which works like as a debit card.DHS will regularly put the money you receive for SNAP on your LINK card, and you can use the card at eligible stores – make sure to ask an employee or look for a sign on the store window to make sure you can use your LINK card to purchase food.</p> <p>Foods and programs that are covered by SNAP includes, but are not necessarily limited to the following:</p>\; <ol><li>grains, dairy, fruits, vegetables, meat / fish / poultry, and dairy products</li> <li>plants or seeds for the purposes of growing food</li> <li>meals - on - wheels; and</li> <li>meals at eligible shelters, group homes and rehabilitation facilities.</li></ol> <p>Learn more about SNAP program requirements here[https://www.dhs.state.il.us/page.aspx?item=30357], and you can use this link [https://fscalc.dhs.illinois.gov/FSCalc/] to find out if you are eligible.</p>"
+    "legal parentage": "<p>A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially established [establishing parentage].</p> <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born(unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
+    "established": "<p>Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways:</p> <ul><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ul>",
+    "legal parent": "<p>The legal parent of a child is a parent with a legally established [establishing parentage]parent- child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate.</p> <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ul><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ul>",
+    "HFS": "<p>The Illinois Department of Healthcare and Family Services (HFS) is an administrative agency with two primary functions:</p> <ol><li>Providing Medicaid coverage to those who qualify; and</li><li>Child support enforcement services through the IV-D program</li></ol> <p>Enrolling in the IV-D program gives HFS the right to establish legal parentage, as well as enter and enforce an administrative child support order.Additionally, HFS can provide help with judicial child support orders through appointing a state's attorney to represent HFS in court.</p> <p>You can visit HFS's website to learn more here [https://www.illinois.gov/hfs/About/Pages/About.aspx]</p>",
+    "administrative child support order": "<p>An administrative child support order is a legally-binding child support order that is entered by the Illinois Department of Healthcare and Family Services(HFS).This means that in order to modify, enforce, or terminate an administrative child support order, you will have to either call HFS or visit their downtown office.</p> <p>If you are the custodial parent or are receiving child support payments through an administrative child support order, this means you are enrolled in HFS's IV-D program, or child support enforcement services.</p> <p>If you have a copy of your child support order, you can tell if it is an administrative child support order if it contains an administrative case number.Otherwise, it might be a judicial child support order with a docket number.</p>",
+    "IV-D": "<p>If you are the custodial parent of a child that is over the age of 17 and/or has graduated high school that plans on enrolling, or is currently enrolled in college or another post- secondary educational institution, you may be; able to receive financial assistance from the child's other legal parent with educational expenses.</p> <p>Expenses that can be covered by educational expenses may include:</p> <ul><li>tuition</li> <li>room-and-board</li> <li>books and other school supplies</li> <li>medical expenses; and/or</li> <li>general costs of living</li></ul> <p>Additionally, if your child has not yet applied to college, you may be able to obtain funds to finance college application fees, college entrance examination fees, or a prepatory course for a college entrance examination. If your child has applied to college, your child must submit the Free Application for Federal Student Aid (FAFSA) and any other financial aid forms prior to you filing for college expenses.</p> <p>Your child may be DISQUALIFIED from receiving college expenses if:</p> <ul><li>your child is over the age of 23</li> <li>your child enters into a marriage or civil union; or</li> <li>fails to maintain a cumulative \"C\" grade average while in college</li></ul>",
+    "Medicaid": "<p>Medicaid is a program offered by the Illinois Department of Healthcare and Family Services (HFS) that pays for certain medical services for eligible children, senior adults, or disabled persons.Eligibility is determined by income – more information can be found here. [https://www.benefits.gov/benefit/1628]</p> <p>Some things to know about Medicaid:</p> <ul><li>If you are a recipient of Medicaid, you are automatically enrolled in HFS's IV-D program, otherwise known as child support enforcement services</li> <li>If you have a child support case, and the custodial parent is a Medicaid recipient, the child support order may require the non-custodial parent to pay cash medical support</li></ul>",
+    "Temporary Assistance to Needy Families": "<p>Temporary Assistance to Needy Families (TANF) is a program that provides cash benefits to pregnant mothers or parents caring for children under the age of 18 or are full- time high; school students.It is offered by the Illinois Department of Public Heath, and you will have to; apply in person – find an office near you here[http://www.dhs.state.il.us/page.aspx?module=12&officetype&county=Cook]. More information on program eligibility can be found here[https://www.benefits.gov/benefit/1662].</p> <p>Some things to know about TANF:</p> <ul><li>If you are a TANF recipient, you are automatically enrolled in the Illinois Department of Healthcare and Family Services(HFS) IV- D program, otherwise known as child support;enforcement services</li> <li>If eligible, TANF recipients will also receive LINK/SNAP benefits</li></ul>",
+    "LINK/SNAP": "<p>The Supplemental Nutritional Assistance Program (SNAP), also known as \"food stamps\", is a program managed in Illinois by the Illinois Department of Human Services (DHS) that provides financial assistance for the costs of buying food.</p> <p>If you are eligible for SNAP cash benefits, you are also eligible to receive an Illinois LINK card, which works like as a debit card.DHS will regularly put the money you receive for SNAP on your LINK card, and you can use the card at eligible stores – make sure to ask an employee or look for a sign on the store window to make sure you can use your LINK card to purchase food.</p> <p>Foods and programs that are covered by SNAP includes, but are not necessarily limited to the following:</p>\; <ul><li>grains, dairy, fruits, vegetables, meat / fish / poultry, and dairy products</li> <li>plants or seeds for the purposes of growing food</li> <li>meals - on - wheels; and</li> <li>meals at eligible shelters, group homes and rehabilitation facilities.</li></ul> <p>Learn more about SNAP program requirements here[https://www.dhs.state.il.us/page.aspx?item=30357], and you can use this link [https://fscalc.dhs.illinois.gov/FSCalc/] to find out if you are eligible.</p>",
+    "SSI": "<p>Supplemental Security Income (SSI) is a need-based program offered by the federal government that provides monthly cash benefits to the following low- income individuals:</p> <ul><li>those aged 65 or older</li> <li>those with certain documented physical or mental disabilities</li> <li>those who are blind; and</li> <li>in some cases, minor children that are disabled or blind</li></ul> <p>You can visit the Social Security Administration's website here [https://www.ssa.gov/ssi/text-eligibility-ussi.htm] to see if you are eligible to receive SSI.</p> <p>It is important to note that SSI disability payments CANNOT be garnished or withheld [income withholding]for the purposes of making child support payments.</p>"
 };
 
 function makeSurvey(array) {
@@ -357,18 +363,21 @@ function replaceButtons(option) {
     }
 }
 
-function setupLinks() {
-    const links = document.getElementsByTagName("a");
+function setupLinks(div) {
+    // SOURCE: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
+    const links = div.querySelectorAll("a");
     for (const a of links) {
         a.addEventListener("click", function () {
-            alert(definitions[a.innerHTML]);
+            const definitionWindow = window.open();
+            const d = definitions[a.innerHTML];
+            // alert(d);
+            definitionWindow.document.write(d);
         });
     };
 }
 
 function showResources(resources) {
     for (const r of resources) {
-        console.log(r);
         document.getElementById(r).style.display = "initial";
     }
 }
@@ -382,6 +391,7 @@ function toggleResources(option) {
         resources.lastElementChild.addEventListener("click", function () {
             window.location.assign("review.html");
         });
+        setupLinks(resources);
         showResources(option.getResources());
     }
     else {
@@ -404,7 +414,7 @@ function setup(option) {
     q.innerHTML = option.question;
 
     // Set up links for defintions
-    setupLinks();
+    setupLinks(q.parentElement);
 
     // Remove old buttons and create new buttons
     replaceButtons(option);
