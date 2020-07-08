@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+
 body {
   margin: 10%;
   display: flex;
@@ -11,9 +13,109 @@ body {
   font-size: 24px;
   line-height: 31px;
 
-  background-color: white;
+  background-color:white;
+  color: black;
+}
+
+.home{
+  position: relative;
 }
 
 div {
-    background-color: #E5E5E5;
+  background-color: #E5E5E5;
 }
+
+.grey{
+  background: #F5F5F7;
+  border-radius: 14px;
+}
+
+h2{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: center;
+}
+
+h3{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  color: #000000;
+}
+
+h4{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+#arrow{
+  width: 30px;
+  height: 30px;
+}
+
+.icon{
+  height: 74.25px;
+}
+
+#takeToSurvey{
+  width: 350px;
+  height: 75px;
+  background: #F5F5F7;
+  border-radius: 8px;
+  color: black;
+  border-color: #F5F5F7;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 42px;
+  /*margin: 50px;*/
+  box-shadow: none;
+  outline:0;
+}
+
+#infographic{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.infographicDescriptor{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background:#F5F5F7;
+}
+
+#point{
+  width: 50px;
+}
+
+#pointer{
+  margin: 50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background:white;
+}
+
+
+/*input[type=button], input[type=submit], input[type=reset]{
+
+   background-color: black;
+  color: white;
+  border-radius: 40%;
+  font-size: 17px;
+  width: 100px;
+  height: 40px;
+  font-family: "Abel", "Arial Narrow", Arial, sans-serif; 
+} */

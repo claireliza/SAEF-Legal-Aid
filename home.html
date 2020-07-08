@@ -6,12 +6,42 @@
     <!-- Home page for the website. -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class = "home">
     <h2>Do you need help with a family legal matter in Chicago?</h2>
-    <h3>You're At The Right Place</h3>
-    <h3>Not sure where to start? Here's our simple process:</h3>
-    <form action="start_survey.html">
-      <input type="submit" value="Take me to the Survey" />
-    </form>
+    <div class="grey">
+      <h3>You're At The Right Place</h3>
+      <h3>Not sure where to start? Here's our simple process:</h3>
+      <div class = "grey" id="infographic">
+        <div class = "infographicDescriptor">
+          <img src = "assets/icon1.png" class = "icon">
+          <h4>You Are Here</h3>
+        </div>
+        <img src = "assets/arrow.png" id="arrow">
+        <div class = "infographicDescriptor">
+          <img src = "assets/icon2.png" class = "icon">
+          <h4>Fill Out Survey</h3>
+        </div>
+        <img src = "assets/arrow.png" id="arrow">
+
+        <div class = "infographicDescriptor">
+          <img src = "assets/icon3.png" class = "icon">
+          <h4>Receive Referrals</h3>
+        </div>
+        <img src = "assets/arrow.png" id="arrow">
+        
+        <div class = "infographicDescriptor">
+          <img src = "assets/icon4.png" class = "icon">
+          <h4>Represent Yourself In Court</h3>
+        </div>
+      </div>
+    </div>
+   
+    <div id = pointer>
+      <img id="point" src="assets/point.png">
+      <form action="start_survey.html">
+        <input id = "takeToSurvey" type="submit" value="Take me to the Survey" />
+      </form>
+    </div>
+  </div>
   </body>
 </html>
