@@ -307,11 +307,15 @@ function setupBackButton(option) {
     /*
     Takes whatever branch of the Option tree you are on and creates a button that will take you to the branch that came before it, taking you one step back in the survey. If you go back to the beginning, this button will take you to start_survey.html.
     */
+    /*document.getElementById("question_area").style.display = "initial"; //claire ADDED THIS */
+
     const backButtonArea = document.getElementById("back");
     const backButton = document.getElementById("back_button");
     const newBackButton = document.createElement("input");
-    newBackButton.setAttribute("type", "submit");
-    newBackButton.setAttribute("value", "Back");
+    //newBackButton.setAttribute("type", "submit");
+    newBackButton.setAttribute("type", "image");
+    //newBackButton.setAttribute("value", "Back");
+    newBackButton.setAttribute("src", "assets/backarrow.png");
     newBackButton.setAttribute("id", "back_button");
 
     if (option.getLastOption() === null) {
@@ -393,6 +397,8 @@ function replaceButtons(option) {
         const button = document.createElement("input");
         button.setAttribute("type", "submit");
         button.setAttribute("value", answer.text);
+        //me
+        button.setAttribute("class", "surveyButton");
         button.addEventListener("click", function () {
             setup(answer);
         }
@@ -425,6 +431,8 @@ function showResources(resources) {
      */
     for (const r of resources) {
         document.getElementById(r).style.display = "initial";
+        /*document.getElementById("question_area").style.display = "none";*/
+
     }
 }
 

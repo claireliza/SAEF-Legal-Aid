@@ -5,43 +5,72 @@
     <title>Home</title>
     <!-- Home page for the website. -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sidebar_style.css" />
+
   </head>
   <body class = "home">
-    <h2>Do you need help with a family legal matter in Chicago?</h2>
-    <div class="grey">
-      <h3>You're At The Right Place</h3>
-      <h3>Not sure where to start? Here's our simple process:</h3>
-      <div class = "grey" id="infographic">
-        <div class = "infographicDescriptor">
-          <img src = "assets/icon1.png" class = "icon">
-          <h4>You Are Here</h3>
-        </div>
-        <img src = "assets/arrow.png" id="arrow">
-        <div class = "infographicDescriptor">
-          <img src = "assets/icon2.png" class = "icon">
-          <h4>Fill Out Survey</h3>
-        </div>
-        <img src = "assets/arrow.png" id="arrow">
-
-        <div class = "infographicDescriptor">
-          <img src = "assets/icon3.png" class = "icon">
-          <h4>Receive Referrals</h3>
-        </div>
-        <img src = "assets/arrow.png" id="arrow">
-        
-        <div class = "infographicDescriptor">
-          <img src = "assets/icon4.png" class = "icon">
-          <h4>Represent Yourself In Court</h3>
-        </div>
+    <div id="mainContainer">
+      
+      <div id="sidebar">
+        <h4 id="sidebarText1">SAEF Legal Aid</h4>
+        <img class="sidebarIcon" src="assets/home.png">
+        <h4 id="sidebarText2">Home</h4>
+        <img class="sidebarIcon" src="assets/livechat.png">
+        <h4 id="sidebarText2">Live Chat</h4>
+        <img class="sidebarIcon" src="assets/resources.png">
+        <h4 id="sidebarText2">Resources</h4>
       </div>
+
+      <div id="container2">
+
+        <div id="topNavBar">
+          <div id="whoWeAre"><h3>Who We Are</h3></div>
+          <div id="getHelp"><h3>Get Help</h3></div>
+          <div id="contactUs"><h3>Contact Us</h3></div>
+        </div>
+
+        <h2>Do you need help with a family legal matter in Chicago?</h2>
+        
+        <div id="centerbox">
+          <h3>You're At The Right Place</h3>
+          <h3>Not sure where to start? Here's our simple process:</h3> 
+          <div id="infographic">
+            
+            <div class = "infographicDescriptor">
+              <img src = "assets/icon1.png" class = "icon">
+              <h4>You Are Here</h3>
+            </div>
+            <img src = "assets/arrow.png" id="arrow">
+            
+            <div class = "infographicDescriptor">
+              <img src = "assets/icon2.png" class = "icon">
+              <h4>Fill Out Survey</h3>
+            </div>
+            <img src = "assets/arrow.png" id="arrow">
+
+            <div class = "infographicDescriptor">
+              <img src = "assets/icon3.png" class = "icon">
+              <h4>Receive Referrals</h3>
+            </div>
+            <img src = "assets/arrow.png" id="arrow">
+            
+            <div class = "infographicDescriptor">
+              <img src = "assets/icon4.png" class = "icon">
+              <h4>Represent Yourself In Court</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div id = pointer>
+          <img id="point" src="assets/point.png">
+          <form action="start_survey.html">
+            <input id = "takeToSurvey" type="submit" value="Take me to the Survey" />
+          </form>
+        </div>
+
+      </div>
+
     </div>
-   
-    <div id = pointer>
-      <img id="point" src="assets/point.png">
-      <form action="start_survey.html">
-        <input id = "takeToSurvey" type="submit" value="Take me to the Survey" />
-      </form>
-    </div>
-  </div>
   </body>
 </html>

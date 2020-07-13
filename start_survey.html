@@ -4,25 +4,55 @@
     <meta charset="utf-8" />
     <title>Begin Survey</title>
     <!-- Explains the survey. -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="start_style.css" />
+    <link rel="stylesheet" href="sidebar_style.css"/>
+
   </head>
   <body>
-    <form action="home.html">
-      <input type="submit" value="Back" id="back" />
-    </form>
-    <h2>Welcome.</h2>
-    <h3>We are here to support you!</h3>
-    <h4>
-      The following survey will provide us with accurate information to direct
-      you to the agency that will be able to best support you in this process.
-      The survey should take approximately 5 minutes.
-    </h4>
-    <p>
-      Please note that the information provided only serves as a guide and is
-      not legal advice!
-    </p>
-    <form action="survey.html">
-      <input type="submit" value="Begin" />
-    </form>
+
+    <div id="mainContainer">
+      <div id="sidebar">
+        <h4 id="sidebarText1">SAEF Legal Aid</h4>
+        <img class="sidebarIcon" src="assets/home.png">
+        <h4 id="sidebarText2">Home</h4>
+        <img class="sidebarIcon" src="assets/livechat.png">
+        <h4 id="sidebarText2">Live Chat</h4>
+        <img class="sidebarIcon" src="assets/resources.png">
+        <h4 id="sidebarText2">Resources</h4>
+      </div>
+
+      <div id="backButton">
+        <a href="home.html"><img id="backIcon" src="assets/backarrow.png"></a>
+      </div>
+
+      <div id="contentContainer">
+        
+        <div id="welcome">
+          <div id="welcomeText">
+            <h3 id="welcomeText1">Welcome.</h3>
+            <h3 id="welcomeText2">We are here to support you!</h3>
+          </div>
+          <img id="wavingMan" src="assets/man_temp.png" alt="man waving">
+        </div>
+
+        <div id="information">
+          <h4 id="welcomeText3">
+            The following survey will provide us with accurate information to direct
+            you to the agency that will be able to best support you in this process.
+            The survey should take approximately 5 minutes.
+          </h4>
+          <p>
+            Please note that the information provided only serves as a guide and is
+            not legal advice!
+          </p>
+        </div>
+
+        <div id="begin">
+          <form action="survey.html">
+            <input id="beginButton" type="submit" value="Begin" />
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
