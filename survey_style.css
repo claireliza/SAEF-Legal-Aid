@@ -17,13 +17,21 @@ h2{
 
 #question_area{
     margin-top: 200px;
+    padding-top: 60px;
     display:flex;
     flex-direction: column;
     background-color: #F5F5F7;
     width: 1051px;
-    height:300px;
+    height:240px;
     border-radius: 14px;
     justify-content: center;
+    align-items: center;
+}
+
+#resources{
+    background-color: #F5F5F7;
+    border-radius: 14px;
+    padding: 15px;
 }
 
 #mainContainer{
@@ -76,4 +84,29 @@ h2{
 
 #buttons{
     margin-bottom:40px;
+}
+
+#thankYou{
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: left;
+}
+
+.resourceDescription{
+    padding-top: 300px; /*not working*/
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.resourceText{
+    text-align: left;
+}
+
+#helpUsImprove{
+    width: 360px;
+    font-size: 28px;
 }

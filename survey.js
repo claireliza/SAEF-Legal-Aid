@@ -439,6 +439,7 @@ function showResources(resources) {
 function toggleResources(option) {
     /* 
     Decides whether it's time to end the survey and display information about legal aid resources.
+    Returns 1 if it's the end, returns 0 if not
      */
     const resources = document.getElementById("resources");
     if (option.getResources() !== undefined) {
@@ -451,12 +452,14 @@ function toggleResources(option) {
         });
         setupLinks(resources);
         showResources(option.getResources());
+        return(1);
     }
     else {
         resources.style.display = "none";
         for (const r of resources.children) {
             r.style.display = "none";
         }
+        return(0);
     }
 }
 
@@ -480,8 +483,15 @@ function setup(option) {
     // Remove old buttons and create new buttons
     replaceButtons(option);
 
-    // Show resources if the survey is over
-    toggleResources(option);
+    // Show resources if the survey is over, hides question area if it is
+    const end = toggleResources(option);
+    if(end==1){
+        document.getElementById("question_area").style.display = "none";
+    } else{
+        document.getElementById("question_area").style.display = "initial";
+    }
+
+
 }
 
 setup(makeSurvey(surveyArray));
