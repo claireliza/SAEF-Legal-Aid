@@ -417,12 +417,43 @@ function setupLinks(div) {
     const links = div.querySelectorAll("a");
     for (const a of links) {
         a.addEventListener("click", function () {
-            const definitionWindow = window.open();
+            //const definitionWindow = window.open();
             const d = definitions[a.innerHTML];
-            // alert(d);
-            definitionWindow.document.write(d);
+            //alert(d);
+            //definitionWindow.document.write(d);
+
+            //claire
+            //const m = document.getElementById("defModal");
+            //m.innerText = d;
+            modal("defModal", d);
         });
     };
+}
+
+/*source : https://www.thatsoftwaredude.com/content/9123/the-simplest-way-to-create-dynamic-modal-popups-in-javascript */
+function modal(id, d){
+    let el = document.getElementById(id);  // can also use a query selector
+    el.classList.add("on");
+    
+    el.innerText = d;
+
+    let body = document.querySelector("body");
+    let bg = document.createElement("div"); //overlay
+    bg.className = "modal-js-overlay";
+    body.appendChild(bg);
+
+    let close = document.createElement("span");
+    el.appendChild(close);
+
+    close.className = "modal-js-close";
+    close.innerHTML = "x";
+    close.addEventListener('click', function () {
+        //let overlay = body.querySelector(".modal-js-overlay");
+        //let closebtn = parent.querySelector(".modal-js-close");
+        body.removeChild(bg);
+        el.classList.remove('on');
+        //el.removeChild(closebtn);
+    });
 }
 
 function showResources(resources) {
@@ -431,8 +462,6 @@ function showResources(resources) {
      */
     for (const r of resources) {
         document.getElementById(r).style.display = "initial";
-        /*document.getElementById("question_area").style.display = "none";*/
-
     }
 }
 
@@ -490,16 +519,6 @@ function setup(option) {
     } else{
         document.getElementById("question_area").style.display = "initial";
     }
-
-
 }
 
 setup(makeSurvey(surveyArray));
-
-
-
-
-
-
-
-
