@@ -1,0 +1,99 @@
+
+h2{
+  font-size: 38px;
+  line-height: 37px;
+  text-align: center;
+}
+
+h3{
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+}
+
+h4{
+  font-size: 20px;
+  text-align: center;
+}
+
+#mainContainer{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 1%; */
+    width: 100%;
+    height:100%;
+  }
+  
+#container2{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  /* margin-left: 3%;
+  margin-right:3%; */
+  margin-bottom:3%;
+  margin-top: 0%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+#arrow{
+  width: 30px;
+  height: 30px;
+}
+
+.icon{
+  height: 74.25px;
+}
+
+#takeToSurvey{
+  width: 350px;
+  height: 75px;
+  background: #F5F5F7;
+  border-radius: 8px;
+  color: black;
+  border-color: #F5F5F7;
+  font-family: Abel;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 42px;
+  /*margin: 50px;*/
+  box-shadow: none;
+  outline:0;
+}
+
+#centerbox{
+  background: #F5F5F7;
+  border-radius: 14px;
+  width: 75%;
+}
+
+#infographic{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #F5F5F7;
+}
+
+.infographicDescriptor{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background:#F5F5F7;
+}
+
+#point{
+  width: 50px;
+}
+
+#pointer{
+  margin: 50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background:white;
+}
