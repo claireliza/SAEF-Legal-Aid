@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 body{
-    margin:auto;
-    padding:0;
     text-align: center;
-    font-family: Abel;
-    font-style: normal;
-    font-weight: normal;
-
 }
 
 #mainContainer{
@@ -36,7 +30,7 @@ h2{
 }
 
 #question_area{
-    margin-top: 200px;
+    margin-top: 150px;
     padding-top: 60px;
     display:flex;
     flex-direction: column;
@@ -124,18 +118,19 @@ h2{
 */
 
 .modal {
-    position: fixed;
-    top: 10%;
+    /* position: fixed;
+    top: 30%;
+    left: 20%; */
+    position: absolute;
+    top: 30%;
+    left: 20%;
+
     padding: 40px 50px;
-    /* border-radius: 8px; */
-    /* background-color: white; */
     z-index: 60000;
     width: 900px;
     min-height: 100px;
     display: none; /*hidden*/
-    left: 50%;
-    margin-left: -400px;
-    /* max-height: 80%; */
+    margin:auto;
     box-sizing: border-box;
 
 

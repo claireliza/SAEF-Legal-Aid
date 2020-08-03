@@ -4,11 +4,22 @@
     <meta charset="utf-8" />
     <title>Begin Survey</title>
     <!-- Explains the survey. -->
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="start_style.css" />
-    <link rel="stylesheet" href="sidebar_style.css"/>
+    <link rel="stylesheet" href="navbar_style.css"/>
 
   </head>
-  <body>
+  <body class="home">
+
+    <div id="topNavBar">
+
+      <div id ="logo" class="page"><h3 class="navText">SAEF LEGAL AID</h3></div>
+      <div id ="pages">
+        <div class="page"><h3 class="navText">Who We Are</h3></div>
+        <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
+        <div class="page"><h3 class="navText">Contact Us</h3></div>
+      </div>
+    </div>
 
     <div id="mainContainer">
       <!-- <div id="sidebar">
@@ -44,6 +55,9 @@
           <p>
             Please note that the information provided only serves as a guide and is
             not legal advice!
+          </p>
+          <p>
+            Your information is not stored and this survey is completely private.
           </p>
         </div>
 
