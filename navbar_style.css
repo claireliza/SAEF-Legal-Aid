@@ -23,6 +23,7 @@
     align-items: center;
     text-decoration: none;
     padding:0px;
+    margin:0px;
   }
   
 .page{
@@ -30,6 +31,7 @@
   padding-right: 20px;
   padding-top:0px;
   padding-bottom:0px;
+  margin:0px;
 }
 
 .page:hover{
