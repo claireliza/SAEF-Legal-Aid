@@ -283,7 +283,8 @@ const definitions = {
     "custodial parent": "The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child. In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child.Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental; responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental;responsibilties has been distributed evenly – both parents would be the child's custodial parent.",
     "legal parentage": "A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially <a href='#!'>established</a>. <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born(unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
     "established": "Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways: <ul><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ul>",
-    "legal parent": "The legal parent of a child is a parent with a legally established [link] parent- child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ul><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ul>",
+    "legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul>",
+    //"legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ul><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ul>",
     "HFS": "The Illinois Department of Healthcare and Family Services (HFS) is an administrative agency with two primary functions: <ol><li>Providing Medicaid coverage to those who qualify; and</li><li>Child support enforcement services through the IV-D program</li></ol> <p>Enrolling in the IV-D program gives HFS the right to establish legal parentage, as well as enter and enforce an administrative child support order.Additionally, HFS can provide help with judicial child support orders through appointing a state's attorney to represent HFS in court.</p> <p>You can visit HFS's website to learn more here [https://www.illinois.gov/hfs/About/Pages/About.aspx]</p>",
     "administrative child support order": "An administrative child support order is a legally-binding child support order that is entered by the Illinois Department of Healthcare and Family Services(HFS).This means that in order to modify, enforce, or terminate an administrative child support order, you will have to either call HFS or visit their downtown office. <p>If you are the custodial parent or are receiving child support payments through an administrative child support order, this means you are enrolled in HFS's IV-D program, or child support enforcement services.</p> <p>If you have a copy of your child support order, you can tell if it is an administrative child support order if it contains an administrative case number.Otherwise, it might be a judicial child support order with a docket number.</p>",
     "IV-D": "<p>If you are the custodial parent of a child that is over the age of 17 and/or has graduated high school that plans on enrolling, or is currently enrolled in college or another post- secondary educational institution, you may be; able to receive financial assistance from the child's other legal parent with educational expenses.</p> <p>Expenses that can be covered by educational expenses may include:</p> <ul><li>tuition</li> <li>room-and-board</li> <li>books and other school supplies</li> <li>medical expenses; and/or</li> <li>general costs of living</li></ul> <p>Additionally, if your child has not yet applied to college, you may be able to obtain funds to finance college application fees, college entrance examination fees, or a prepatory course for a college entrance examination. If your child has applied to college, your child must submit the Free Application for Federal Student Aid (FAFSA) and any other financial aid forms prior to you filing for college expenses.</p> <p>Your child may be DISQUALIFIED from receiving college expenses if:</p> <ul><li>your child is over the age of 23</li> <li>your child enters into a marriage or civil union; or</li> <li>fails to maintain a cumulative \"C\" grade average while in college</li></ul>",
@@ -425,6 +426,10 @@ function replaceButtons(option) {
     }
 }
 
+/*
+bug - when you click the nested link more than once it breaks
+CREATE A SECOND FUNCTION TO DO THE HOVER LINKS
+*/
 function setupLinks(div) {
     /* 
     Finds all the <a href="#!"> tags that are descendants of a given <div> tag and makes it so that when you click on the link, it'll retrieve its definition from the dictionary of terms and display that definition in a popup.
@@ -437,61 +442,105 @@ function setupLinks(div) {
     for (const a of links) {
         a.style.color = "#0066ff"; //sets link color to bright blue
         //let content = a.innerHTML;
-        let icon = document.createElement("span");
-        icon.className="icon";
-        a.appendChild(icon);
+
+        //trying to create icons
+        // let icon = document.createElement("span");
+        // icon.className="icon";
+        // a.appendChild(icon);
 
         // a.classList.add("icon");
         a.addEventListener("click", function () {
             const d = definitions[a.innerText];
 
-            if (isEmpty){
+            if (isEmpty){ //if function is being called on question area
                 createModal("defModal", d); //creates modal window
-                setupLinks(document.getElementById("defModal")); //creates links for text inside modal window
-            } else{
+                //setupLinks(document.getElementById("defModal")); //creates links for text inside modal window
+                setupHover(document.getElementById("defModal"));
+            } else{ //if function is being called on the first modal window
                 //document.getElementById("defModal").classList.add("side"); 
-                document.getElementById("defModal").style.left = "15%"; //moves modal window 1 over to the side if we're in a second modal window
+                //document.getElementById("defModal").style.left = "15%"; //moves modal window 1 over to the side if we're in a second modal window
                 createModal("defModal2", d); //sets up second modal window 
             }
         });
     };
 }
 
+function setupHover(div){
+    const links = div.querySelectorAll("a");
+    for (const a of links) {
+        a.style.color = "#0066ff"; //sets link color to bright blue
+
+        a.addEventListener("mouseover", function (){
+            const d = definitions[a.innerText];
+            createModal("defModal2", d);
+        });
+
+        a.addEventListener("mouseleave", function (){
+            //let body = document.querySelector("body");
+            //body.removeChild(document.getElementById("overlay1"));
+            document.getElementById("defModal2").classList.remove('on');
+            document.getElementById("defModal2").innerHTML ="";
+        });
+
+
+    }
+}
+
+
+
 /* Creates modal window with a background overlay underneath and a close button in the corner that clears the whole modal
 source : https://www.thatsoftwaredude.com/content/9123/the-simplest-way-to-create-dynamic-modal-popups-in-javascript */
+
+//CLEAN THIS UP!
 function createModal(id, d){
+
+    // if(id==="defModal2"){
+    //     console.log("defModal2");
+    // }
+
     let el = document.getElementById(id);
     el.classList.add("on");
-    
     el.innerHTML=d;
 
     let body = document.querySelector("body");
-    let bg = document.createElement("div"); //overlay
-    bg.className = "modal-js-overlay";
-    body.appendChild(bg);
+    if(id==="defModal"){
+        //console.log("creating overlay");
+        let bg = document.createElement("div"); //overlay
+        bg.id = "overlay";
+        bg.className = "modal-js-overlay";
+        body.appendChild(bg);
+    } else if(id==="defModal2"){
+        //console.log("creating overlay1");
+
+        //let bg1 = document.createElement("div"); //overlay
+        //bg1.id = "overlay1";
+       // bg1.className = "modal-js-overlay";
+       // body.appendChild(bg1);
+    }
+    
 
     let close = document.createElement("span");
     el.appendChild(close);
 
-    close.className = "modal-js-close";
+    
+    if(id==="defModal"){
+        close.className = "modal-js-close";
+    }
+
     close.innerHTML = "x";
     close.addEventListener('click', function () {
-        body.removeChild(bg);
+        if(id==="defModal"){
+            body.removeChild(document.getElementById("overlay"));
+            //document.getElementById("overlay")
+        } else if (id==="defModal2"){
+            //body.removeChild(bg1);
+            //body.removeChild(document.getElementById("overlay1"));
+
+        }
         el.classList.remove('on');
         el.innerHTML = ""; //clears modal
-        document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
+        //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
     });
-
-    // window.onclick = function(event){
-    //     if(event.target.id != id){
-    //         // modal1.style.display="none";
-    //         el.style.display="none";
-    //         body.removeChild(bg);
-    //         el.classList.remove('on');
-    //         el.innerHTML = "";
-    //     }
-    // }
-
 }
 
 function showResources(resources) {

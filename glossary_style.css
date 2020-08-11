@@ -1,0 +1,16 @@
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 20px; 
+}
+
+#glossaryBox{
+    margin: 50px;
+    /* background-color:  #F5F5F7; */
+    border-radius: 14px;
+    margin-bottom: 900px;
+}
