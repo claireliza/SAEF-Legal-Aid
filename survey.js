@@ -280,8 +280,8 @@ const definitions = {
 
 
     "child support": "Child support refers to financial contributions made by a legal parent of a child(s) to the other <a href='#!'>legal parent</a>  in contribution towards the cost of caring for and raising a minor child. Generally speaking, the parent that makes child support payments is the child's non-custodial parent, while the parent that receives the payments is the child's custodial parent. ",
-    "custodial parent": "The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child. In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child.Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental; responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental;responsibilties has been distributed evenly – both parents would be the child's custodial parent.",
-    "legal parentage": "A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially <a href='#!'>established</a>. <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born(unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
+    "custodial parent": "The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child. In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child. Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental responsibilties has been distributed evenly – both parents would be the child's custodial parent.",
+    "legal parentage": "A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially <a href='#!'>established</a>. <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born (unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
     "established": "Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways: <ul><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ul>",
     "legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul>",
     //"legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ul><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ul>",
@@ -432,9 +432,12 @@ CREATE A SECOND FUNCTION TO DO THE HOVER LINKS
 */
 function setupLinks(div) {
     /* 
-    Finds all the <a href="#!"> tags that are descendants of a given <div> tag and makes it so that when you click on the link, it'll retrieve its definition from the dictionary of terms and display that definition in a popup.
+    Finds all the <a href="#!"> tags that are descendants of a given <div> tag and makes it 
+    so that when you click on the link, it'll retrieve its definition from the dictionary of
+    terms and display that definition in a popup.
      */
     // SOURCE: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
+    
     const links = div.querySelectorAll("a");
 
     var isEmpty = document.getElementById("defModal").innerHTML === "";
@@ -456,11 +459,13 @@ function setupLinks(div) {
                 createModal("defModal", d); //creates modal window
                 //setupLinks(document.getElementById("defModal")); //creates links for text inside modal window
                 setupHover(document.getElementById("defModal"));
-            } else{ //if function is being called on the first modal window
-                //document.getElementById("defModal").classList.add("side"); 
-                //document.getElementById("defModal").style.left = "15%"; //moves modal window 1 over to the side if we're in a second modal window
-                createModal("defModal2", d); //sets up second modal window 
-            }
+            } 
+            
+            // else{ //if function is being called on the first modal window
+            //     //document.getElementById("defModal").classList.add("side"); 
+            //     //document.getElementById("defModal").style.left = "15%"; //moves modal window 1 over to the side if we're in a second modal window
+            //     createModal("defModal2", d); //sets up second modal window 
+            // }
         });
     };
 }
@@ -482,7 +487,11 @@ function setupHover(div){
             document.getElementById("defModal2").innerHTML ="";
         });
 
-
+        a.addEventListener('click', function(){
+            var str1 = "glossary.html#";
+            var str2 = a.innerText;
+            window.open(str1.concat(str2), '_blank');
+        });
     }
 }
 
@@ -548,7 +557,9 @@ function showResources(resources) {
     Displays all the <div> elements with information about resources that are specified in the string array 'resources'.
      */
     for (const r of resources) {
-        document.getElementById(r).style.display = "initial";
+        // document.getElementById(r).style.display = "initial";
+        document.getElementById(r).style.display = "flex";
+
     }
 }
 

@@ -64,16 +64,24 @@
         <!-- This is hidden for most of the survey because its CSS 'display' property is set to "none" in survey.js and reset to 'initial' at the end of the survey -->
         <!-- The function addEventListner() takes those dead <a href="#!"> links and makes them show the definitions of the hyperlinked words they're wrapped around when they're clicked in setupLinks() in survey.js -->
         <div id="resources">
-          <h3 id="thankYou">
+          <!-- <h3 id="thankYou">
             Thank you for taking the time to complete this survey, we feel confident
             that these agencies should best be able to assist you.
+          </h3> -->
+          <h3 id="thankYou">
+            These free and low-cost resources can help you:
           </h3>
-          <div id="Healthcare & Family Services" class="resourceDescription">
-            <h2>Healthcare & Family Services</h2>
-            <p><a href="http://www.hfs.illinois.gov/">Visit Website</a></p>
-            <p><a href="tel:2122222020">212-222-2020</a></p>
-            <p>Mon-Fri 9-5</p>
-            <p>33 Main St. Chicago, IL</p>
+
+          <div id="Healthcare & Family Services" class="resourceDescription"> 
+            <!-- <h2>Healthcare & Family Services</h2> -->
+  
+            <div class="contactInfo">
+              <img src="assets/HFS-logo.jpg" alt="HFS logo" class="logo"></img>
+              <p><a href="http://www.hfs.illinois.gov/">Visit Website</a></p>
+              <p><a href="tel:2122222020">212-222-2020</a></p>
+              <p>Mon-Fri 9-5</p>
+              <p>33 Main St. Chicago, IL</p>
+            </div>
             <p class = "resourceText">
               The Illinois Department of Healthcare and Family Services (<a href="#!">HFS</a>) have the
               resources to locate the other parent – even if they live out-of-state
@@ -93,12 +101,14 @@
             </p>
           </div>
           <div id="Chicago Legal Clinic" class = "resourceDescription">
-            <h2>Chicago Legal Clinic:</h2>
-            <h4>Child Support & Parentage Pro Se Advice Desk</h4>
-            <p>Mon-Fri 9-5</p>
-            <p>102 Libert Ave. Chicago, IL</p>
-            <a href="https://clclaw.org/">Visit Website</a>
-            <a href="tel:2122222020">212-222-2020</a>
+            <div class= "contactInfo">
+              <h2>Chicago Legal Clinic:</h2>
+              <h4>Child Support & Parentage Pro Se Advice Desk</h4>
+              <p>Mon-Fri 9-5</p>
+              <p>102 Libert Ave. Chicago, IL</p>
+              <a href="https://clclaw.org/">Visit Website</a>
+              <a href="tel:2122222020">212-222-2020</a>
+              </div>
             <p class="resourceText">
               CLC...: If you are denied enrollment in HFS's IV-D program – otherwise
               known as child support enforcement services – these legal service
