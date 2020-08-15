@@ -77,7 +77,7 @@ h2{
 }
 
 #buttons{
-    margin-bottom:40px;
+    margin-bottom:10px;
 }
 
 
@@ -103,7 +103,8 @@ h2{
     border-radius: 14px;
     background-color:#F5F5F7;
     padding: 25px;
-    margin: 25px;
+    margin-bottom: 25px;
+    /* margin-top: -40px; */
 
 }
 
@@ -185,6 +186,9 @@ h2{
 
     text-align: left;
     overflow: scroll;
+    width: 80%;
+    left: 7.5%;
+
 
 }
 
@@ -197,11 +201,9 @@ h2{
 
 #defModal{
     position: absolute;
-    top: 15%;
-    left: 15%; 
+    top: 12%;
     /* margin:auto; */
-    width: 70%;
-    max-height: 300px;
+    max-height: 250px;
     background: #333333;
     color:white;
     
@@ -209,14 +211,13 @@ h2{
 
 #defModal2{
     position: absolute;
-    top: 45%;
-    left: 15%;
-    width: 70%;
+    background: rgba(255, 255, 255, 0.712);
+    color:black;
+    top: 50%;
     /* width: 875px; */
     /* font-size: 24px; */
     /* max-height: 250px; */
-    background: rgba(255, 255, 255, 0.712);
-    color:black;
+   
 }
 
 .modal.on {

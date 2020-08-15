@@ -280,6 +280,8 @@ const definitions = {
 
 
     "child support": "Child support refers to financial contributions made by a legal parent of a child(s) to the other <a href='#!'>legal parent</a>  in contribution towards the cost of caring for and raising a minor child. Generally speaking, the parent that makes child support payments is the child's non-custodial parent, while the parent that receives the payments is the child's custodial parent. ",
+    "Child Support": "Child support refers to financial contributions made by a legal parent of a child(s) to the other <a href='#!'>legal parent</a>  in contribution towards the cost of caring for and raising a minor child. Generally speaking, the parent that makes child support payments is the child's non-custodial parent, while the parent that receives the payments is the child's custodial parent. ",
+
     "custodial parent": "The custodial parent is the legal parent of a child that is primarily responsible for the caretaking functions of a child. In other words, the custodial parent is the parent that is first and foremost the primary caregiver of the child. Similarly, the other legal parent of the child is called the non- custodial parent.</p> <p>The custodial parent can be determined through an allocation of parental responsibilties(custody), which is ordered[court order]through a parenting plan; otherwise, the child's biological mother is typically made the custodial parent once the child is born.</p> <p>If two parents have joint - custody – or the allocation of parental responsibilties has been distributed evenly – both parents would be the child's custodial parent.",
     "legal parentage": "A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially <a href='#!'>established</a>. <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born (unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
     "established": "Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways: <ul><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ul>",
@@ -397,13 +399,22 @@ function replaceButtons(option) {
     /* 
     Replaces an old set of answer buttons with the ones for a different question.
      */
+
     // Remove old buttons
+    // Remove old icons
     const buttonArea = document.getElementById("buttons");
+    const iconArea = document.getElementById("icons");
+    
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
     let b = buttonArea.firstElementChild;
+    let i = iconArea.firstElementChild;
     while (b) {
         buttonArea.removeChild(b);
         b = buttonArea.firstChild;
+    }
+    while (i) {
+        iconArea.removeChild(i);
+        i = iconArea.firstChild;
     }
 
     // Create new buttons
@@ -421,8 +432,26 @@ function replaceButtons(option) {
         }
         );
 
+        //claire
+       // const icon = document.createElement("span");
+        const icon = document.createElement("img");
+
+        //icon styling
+        icon.setAttribute("src", "assets/information\ 10.png");
+        icon.style.width="50px";
+        icon.style.paddingLeft="85px";
+        icon.style.paddingRight="85px";
+        icon.id = answer.text;
+
+        icon.addEventListener("click", function () {
+            const d = definitions[icon.id]; //MAKE THIS NOT CASE SENSITIVE
+            createModal("defModal", d); //creates modal window
+            setupHover(document.getElementById("defModal"));
+        });
+
         // Insert new button
         buttonArea.appendChild(button);
+        iconArea.appendChild(icon);
     }
 }
 
@@ -457,15 +486,8 @@ function setupLinks(div) {
 
             if (isEmpty){ //if function is being called on question area
                 createModal("defModal", d); //creates modal window
-                //setupLinks(document.getElementById("defModal")); //creates links for text inside modal window
                 setupHover(document.getElementById("defModal"));
             } 
-            
-            // else{ //if function is being called on the first modal window
-            //     //document.getElementById("defModal").classList.add("side"); 
-            //     //document.getElementById("defModal").style.left = "15%"; //moves modal window 1 over to the side if we're in a second modal window
-            //     createModal("defModal2", d); //sets up second modal window 
-            // }
         });
     };
 }
@@ -511,6 +533,10 @@ function createModal(id, d){
     el.classList.add("on");
     el.innerHTML=d;
 
+    // if(id==="defModal2"){
+    //     el.style.left = document.getElementById("defModal").style.bottom + 30;
+    // }
+
     let body = document.querySelector("body");
     if(id==="defModal"){
         //console.log("creating overlay");
@@ -518,15 +544,7 @@ function createModal(id, d){
         bg.id = "overlay";
         bg.className = "modal-js-overlay";
         body.appendChild(bg);
-    } else if(id==="defModal2"){
-        //console.log("creating overlay1");
-
-        //let bg1 = document.createElement("div"); //overlay
-        //bg1.id = "overlay1";
-       // bg1.className = "modal-js-overlay";
-       // body.appendChild(bg1);
     }
-    
 
     let close = document.createElement("span");
     el.appendChild(close);
@@ -541,10 +559,6 @@ function createModal(id, d){
         if(id==="defModal"){
             body.removeChild(document.getElementById("overlay"));
             //document.getElementById("overlay")
-        } else if (id==="defModal2"){
-            //body.removeChild(bg1);
-            //body.removeChild(document.getElementById("overlay1"));
-
         }
         el.classList.remove('on');
         el.innerHTML = ""; //clears modal
