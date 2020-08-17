@@ -3,6 +3,7 @@
 
 .home{
     position: relative;
+    
 }
   
 #welcomeText1{
@@ -81,7 +82,7 @@ p{
     height: 90px;
     background-color: black;
     color:white;
-    font-family: Roboto;
+    font-family: Abel;
     font-style: normal;
     font-weight: normal;
     font-size: 32px;

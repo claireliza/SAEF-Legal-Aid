@@ -525,9 +525,7 @@ source : https://www.thatsoftwaredude.com/content/9123/the-simplest-way-to-creat
 //CLEAN THIS UP!
 function createModal(id, d){
 
-    // if(id==="defModal2"){
-    //     console.log("defModal2");
-    // }
+    document.getElementById("modalBox").classList.add("on");
 
     let el = document.getElementById(id);
     el.classList.add("on");
@@ -537,30 +535,28 @@ function createModal(id, d){
     //     el.style.left = document.getElementById("defModal").style.bottom + 30;
     // }
 
+    //creating background
     let body = document.querySelector("body");
     if(id==="defModal"){
-        //console.log("creating overlay");
         let bg = document.createElement("div"); //overlay
         bg.id = "overlay";
         bg.className = "modal-js-overlay";
         body.appendChild(bg);
     }
 
+    //close button
     let close = document.createElement("span");
     el.appendChild(close);
-
-    
     if(id==="defModal"){
         close.className = "modal-js-close";
     }
-
     close.innerHTML = "x";
     close.addEventListener('click', function () {
         if(id==="defModal"){
             body.removeChild(document.getElementById("overlay"));
-            //document.getElementById("overlay")
         }
         el.classList.remove('on');
+        document.getElementById("modalBox").classList.remove('on');
         el.innerHTML = ""; //clears modal
         //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
     });
