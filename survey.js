@@ -537,30 +537,59 @@ function createModal(id, d){
 
     //creating background
     let body = document.querySelector("body");
+    let bg = document.createElement("div"); //overlay
     if(id==="defModal"){
-        let bg = document.createElement("div"); //overlay
         bg.id = "overlay";
         bg.className = "modal-js-overlay";
         body.appendChild(bg);
     }
 
     //close button
-    let close = document.createElement("span");
-    el.appendChild(close);
-    if(id==="defModal"){
-        close.className = "modal-js-close";
-    }
-    close.innerHTML = "x";
-    close.addEventListener('click', function () {
+    // let close = document.createElement("span");
+    // el.appendChild(close);
+    // if(id==="defModal"){
+    //     close.className = "modal-js-close";
+    // }
+    // close.innerHTML = "x";
+    // close.addEventListener('click', function () {
+    //     if(id==="defModal"){
+    //         body.removeChild(document.getElementById("overlay"));
+    //     }
+    //     el.classList.remove('on');
+    //     document.getElementById("modalBox").classList.remove('on');
+    //     el.innerHTML = ""; //clears modal
+    //     //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
+    // });
+
+    // Source: https://gomakethings.com/detecting-clicks-inside-an-element-with-vanilla-javascript/
+    bg.addEventListener('click', function (event) {
+
+        // If the click happened inside the modal, do nothing
+        if (event.target.closest('#defModal')) return;
+    
+        // Otherwise, close any open modal windows
+        // You would add the code for that here...
         if(id==="defModal"){
             body.removeChild(document.getElementById("overlay"));
         }
         el.classList.remove('on');
         document.getElementById("modalBox").classList.remove('on');
-        el.innerHTML = ""; //clears modal
-        //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
+        el.innerHTML = "";
+    
     });
 }
+
+// function modaloff(id) {
+//     let body = document.querySelector("body");
+//     let el = document.getElementById(id);
+//     let overlay = document.getElementById("overlay");
+
+//     el.classList.remove('on');
+//     document.getElementById("modalBox").classList.remove('on');
+//     el.innerHTML = "";
+//     body.removeChild(overlay);
+// }
+
 
 function showResources(resources) {
     /* 
