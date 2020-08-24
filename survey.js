@@ -58,147 +58,184 @@ const surveyArray = [
                 answers: [
                     {
                         text: "Obtain",
-                        question: "Are you the child's <a href='#!'>custodial parent</a>?",
+                        question: "Does the child live with you?",
+                        //question: "Are you the child's <a href='#!'>custodial parent</a>?",
                         answers: [
                             {
                                 text: "Yes",
-                                question: "Is the child under 18 or currently a highschool student?",
+                                question: "Is the child younger than 18 or in high school?",
                                 answers: [
                                     {
                                         text: "Yes",
                                         question: "Do you know who the child's other parent is?",
                                         answers: [
                                             {
+                                                // text: "Yes",
+                                                // question: "Has the other parent's <a href='#!'>legal parentage</a> been established?",
+                                                // answers: [
+                                                //     {
+                                                //         text: "Yes",
+                                                //         question: "How was other parent's <a href='#!'>legal parentage</a> <a href='#!'>established</a>?",
+                                                //         answers: [
+                                                //             {
+                                                //                 text: "Marriage",
+                                                //                 question: "Which of the following options best describes your current relationship with the child's other parent?",
+                                                //                 answers: [
+                                                //                     {
+                                                //                         text: "Married",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "Legally Separated",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "Divorced",
+                                                //                         question: "Was a child support order entered into your (marital) settlement agreement?",
+                                                //                         answers: [
+                                                //                             {
+                                                //                                 text: "Yes",
+                                                //                                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
+                                                //                                 answers: [
+                                                //                                     {
+                                                //                                         text: "Yes",
+                                                //                                         question: "",
+                                                //                                         answers: [],
+                                                //                                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                                     },
+                                                //                                     {
+                                                //                                         text: "No",
+                                                //                                         question: "",
+                                                //                                         answers: [],
+                                                //                                         resources: ["Healthcare & Family Services"],
+                                                //                                     },
+                                                //                                 ],
+                                                //                             },
+                                                //                             {
+                                                //                                 text: "No",
+                                                //                                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
+                                                //                                 answers: [
+                                                //                                     {
+                                                //                                         text: "Yes",
+                                                //                                         question: "",
+                                                //                                         answers: [],
+                                                //                                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                                     },
+                                                //                                     {
+                                                //                                         text: "No",
+                                                //                                         question: "",
+                                                //                                         answers: [],
+                                                //                                         resources: ["Healthcare & Family Services"],
+                                                //                                     },
+                                                //                                 ],
+                                                //                             },
+                                                //                         ],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "Civil Union",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                     },
+                                                //                 ],
+                                                //             },
+                                                //             {
+                                                //                 text: "VAP",
+                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
+                                                //                 answers: [
+                                                //                     {
+                                                //                         text: "Yes",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "No",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services"],
+                                                //                     },
+                                                //                 ],
+                                                //             },
+                                                //             {
+                                                //                 text: "Not Sure",
+                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
+                                                //                 answers: [
+                                                //                     {
+                                                //                         text: "Yes",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "No",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services"],
+                                                //                     },
+                                                //                 ],
+                                                //             },
+                                                //             {
+                                                //                 text: "Other",
+                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
+                                                //                 answers: [
+                                                //                     {
+                                                //                         text: "Yes",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                     },
+                                                //                     {
+                                                //                         text: "No",
+                                                //                         question: "",
+                                                //                         answers: [],
+                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                //                     },
+                                                //                 ],
+                                                //             },
+                                                //         ],
+                                                //     },
+                                                //     {
+
                                                 text: "Yes",
-                                                question: "Has the other parent's <a href='#!'>legal parentage</a> been established?",
+                                                question: "Does the child's other parent live in the same state as you?",
                                                 answers: [
                                                     {
                                                         text: "Yes",
-                                                        question: "How was other parent's <a href='#!'>legal parentage</a> <a href='#!'>established</a>?",
+                                                        question: "Are you married to (or in a civil union with) the child's other parent?",
                                                         answers: [
                                                             {
-                                                                text: "Marriage",
-                                                                question: "Which of the following options best describes your current relationship with the child's other parent?",
-                                                                answers: [
-                                                                    {
-                                                                        text: "Married",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                    },
-                                                                    {
-                                                                        text: "Legally Separated",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                    },
-                                                                    {
-                                                                        text: "Divorced",
-                                                                        question: "Was a child support order entered into your (marital) settlement agreement?",
-                                                                        answers: [
-                                                                            {
-                                                                                text: "Yes",
-                                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                                                answers: [
-                                                                                    {
-                                                                                        text: "Yes",
-                                                                                        question: "",
-                                                                                        answers: [],
-                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                                    },
-                                                                                    {
-                                                                                        text: "No",
-                                                                                        question: "",
-                                                                                        answers: [],
-                                                                                        resources: ["Healthcare & Family Services"],
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                            {
-                                                                                text: "No",
-                                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                                                answers: [
-                                                                                    {
-                                                                                        text: "Yes",
-                                                                                        question: "",
-                                                                                        answers: [],
-                                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                                    },
-                                                                                    {
-                                                                                        text: "No",
-                                                                                        question: "",
-                                                                                        answers: [],
-                                                                                        resources: ["Healthcare & Family Services"],
-                                                                                    },
-                                                                                ],
-                                                                            },
-                                                                        ],
-                                                                    },
-                                                                    {
-                                                                        text: "Civil Union",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                    },
-                                                                ],
+                                                                text: "Yes",
+                                                                question: "",
+                                                                answers: [], 
+                                                                resources: ["Divorce"], //how to get a divorce
                                                             },
                                                             {
-                                                                text: "VAP",
-                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                                answers: [
-                                                                    {
-                                                                        text: "Yes",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                    },
-                                                                    {
-                                                                        text: "No",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services"],
-                                                                    },
-                                                                ],
-                                                            },
-                                                            {
-                                                                text: "Not Sure",
-                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                                answers: [
-                                                                    {
-                                                                        text: "Yes",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                    },
-                                                                    {
-                                                                        text: "No",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services"],
-                                                                    },
-                                                                ],
-                                                            },
-                                                            {
-                                                                text: "Other",
-                                                                question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                                answers: [
-                                                                    {
-                                                                        text: "Yes",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                    },
-                                                                    {
-                                                                        text: "No",
-                                                                        question: "",
-                                                                        answers: [],
-                                                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                                    },
-                                                                ],
+                                                                text: "No",
+                                                                question: "",
+                                                                answers: [],
+                                                                resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                                             },
                                                         ],
                                                     },
                                                     {
                                                         text: "No",
-                                                        question: "",
-                                                        answers: [],
+                                                        question: "Are you married to (or in a civil union with) the child's other parent?",
+                                                        answers: [
+                                                            {
+                                                                text: "Yes",
+                                                                question: "",
+                                                                answers: [], 
+                                                                resources: ["Divorce"], //how to get a divorce
+                                                            },
+                                                            {
+                                                                text: "No",
+                                                                question: "",
+                                                                answers: [],
+                                                                resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                            },
+                                                        ],
                                                     },
                                                 ],
                                             },
@@ -206,20 +243,27 @@ const surveyArray = [
                                                 text: "No",
                                                 question: "",
                                                 answers: [],
+                                                resources: ["Healthcare & Family Services"],
                                             },
                                         ],
                                     },
                                     {
                                         text: "No",
                                         question: "",
-                                        answers: [],
+                                        answers: [], //file for college expenses, enforcing support order 
+                                    },
+                                    {
+                                        text: "No, but my child has a disability",
+                                        question: "",
+                                        answers: [], 
+                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
                                     },
                                 ],
                             },
                             {
                                 text: "No",
                                 question: "",
-                                answers: [],
+                                answers: [], // go to getting custody questionnaire
                             },
                         ],
                     },
@@ -403,19 +447,19 @@ function replaceButtons(option) {
     // Remove old buttons
     // Remove old icons
     const buttonArea = document.getElementById("buttons");
-    const iconArea = document.getElementById("icons");
+   //const iconArea = document.getElementById("icons");
     
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
     let b = buttonArea.firstElementChild;
-    let i = iconArea.firstElementChild;
+    //let i = iconArea.firstElementChild;
     while (b) {
         buttonArea.removeChild(b);
         b = buttonArea.firstChild;
     }
-    while (i) {
-        iconArea.removeChild(i);
-        i = iconArea.firstChild;
-    }
+    // while (i) {
+    //     iconArea.removeChild(i);
+    //     i = iconArea.firstChild;
+    // }
 
     // Create new buttons
     // CREATE ICONS HERE!!! WITH CLASS AS ICON AND ID AS THEIR DEFINITION
@@ -425,33 +469,37 @@ function replaceButtons(option) {
         const button = document.createElement("input");
         button.setAttribute("type", "submit");
         button.setAttribute("value", answer.text);
+
         //me
         button.setAttribute("class", "surveyButton");
         button.addEventListener("click", function () {
             setup(answer);
-        }
-        );
+        });
+
 
         //claire
        // const icon = document.createElement("span");
-        const icon = document.createElement("img");
+        // const icon = document.createElement("img");
 
-        //icon styling
-        icon.setAttribute("src", "assets/information\ 10.png");
-        icon.style.width="50px";
-        icon.style.paddingLeft="85px";
-        icon.style.paddingRight="85px";
-        icon.id = answer.text;
+        // //icon styling
+        // icon.setAttribute("src", "assets/information\ 10.png");
+        // icon.style.width="50px";
+        // icon.style.paddingLeft="85px";
+        // icon.style.paddingRight="85px";
+        // icon.id = answer.text;
 
-        icon.addEventListener("click", function () {
-            const d = definitions[icon.id]; //MAKE THIS NOT CASE SENSITIVE
-            createModal("defModal", d); //creates modal window
-            setupHover(document.getElementById("defModal"));
-        });
+        // icon.addEventListener("click", function () {
+        //     const d = definitions[icon.id]; //MAKE THIS NOT CASE SENSITIVE
+        //     createModal("defModal", d); //creates modal window
+        //     setupHover(document.getElementById("defModal"));
+        // });
 
         // Insert new button
         buttonArea.appendChild(button);
-        iconArea.appendChild(icon);
+        //iconArea.appendChild(icon);
+
+        //allows for longer buttons
+        button.style.width = (  (Math.max((button.clientWidth + 5), 200))  + "px"); 
     }
 }
 
@@ -472,7 +520,11 @@ function setupLinks(div) {
     var isEmpty = document.getElementById("defModal").innerHTML === "";
 
     for (const a of links) {
-        a.style.color = "#0066ff"; //sets link color to bright blue
+        //a.style.color = "#0066ff"; //sets link color to bright blue
+        a.style.color = "black"; //sets link color to black
+
+        a.style.textDecoration = "#underline"; //sets link underline
+
         //let content = a.innerHTML;
 
         //trying to create icons
@@ -493,9 +545,11 @@ function setupLinks(div) {
 }
 
 function setupHover(div){
+    
     const links = div.querySelectorAll("a");
     for (const a of links) {
-        a.style.color = "#0066ff"; //sets link color to bright blue
+        a.style.color = "white"; //sets link color to white
+        a.style.textDecoration = "#underline";
 
         a.addEventListener("mouseover", function (){
             const d = definitions[a.innerText];
@@ -531,10 +585,6 @@ function createModal(id, d){
     el.classList.add("on");
     el.innerHTML=d;
 
-    // if(id==="defModal2"){
-    //     el.style.left = document.getElementById("defModal").style.bottom + 30;
-    // }
-
     //creating background
     let body = document.querySelector("body");
     let bg = document.createElement("div"); //overlay
@@ -544,23 +594,6 @@ function createModal(id, d){
         body.appendChild(bg);
     }
 
-    //close button
-    // let close = document.createElement("span");
-    // el.appendChild(close);
-    // if(id==="defModal"){
-    //     close.className = "modal-js-close";
-    // }
-    // close.innerHTML = "x";
-    // close.addEventListener('click', function () {
-    //     if(id==="defModal"){
-    //         body.removeChild(document.getElementById("overlay"));
-    //     }
-    //     el.classList.remove('on');
-    //     document.getElementById("modalBox").classList.remove('on');
-    //     el.innerHTML = ""; //clears modal
-    //     //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
-    // });
-
     // Source: https://gomakethings.com/detecting-clicks-inside-an-element-with-vanilla-javascript/
     bg.addEventListener('click', function (event) {
 
@@ -568,7 +601,6 @@ function createModal(id, d){
         if (event.target.closest('#defModal')) return;
     
         // Otherwise, close any open modal windows
-        // You would add the code for that here...
         if(id==="defModal"){
             body.removeChild(document.getElementById("overlay"));
         }
@@ -579,18 +611,6 @@ function createModal(id, d){
     });
 }
 
-// function modaloff(id) {
-//     let body = document.querySelector("body");
-//     let el = document.getElementById(id);
-//     let overlay = document.getElementById("overlay");
-
-//     el.classList.remove('on');
-//     document.getElementById("modalBox").classList.remove('on');
-//     el.innerHTML = "";
-//     body.removeChild(overlay);
-// }
-
-
 function showResources(resources) {
     /* 
     Displays all the <div> elements with information about resources that are specified in the string array 'resources'.
@@ -598,7 +618,6 @@ function showResources(resources) {
     for (const r of resources) {
         // document.getElementById(r).style.display = "initial";
         document.getElementById(r).style.display = "flex";
-
     }
 }
 
@@ -612,7 +631,7 @@ function toggleResources(option) {
         // This branch of the Option tree has the 'resources' property, which means that it's the end of the survey and there are resources to recommend.
         resources.style.display = "initial";
         resources.firstElementChild.style.display = "initial";
-        resources.lastElementChild.style.display = "initial";
+        //resources.lastElementChild.style.display = "initial"; //HELP US IMPROVE BUTTON
         resources.lastElementChild.addEventListener("click", function () {
             window.location.assign("review.html");
         });
