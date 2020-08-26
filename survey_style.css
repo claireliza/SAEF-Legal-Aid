@@ -81,20 +81,17 @@ h2{
     margin-bottom:10px;
 }
 
-
 /* RESOURCES DISPLAY STYLING */
 
 #resources{
-    /* background-color:white; */
-    /* border-radius: 14px; */
-    padding: 15px;
-    /* width: 700px; */
     padding: 50px;
     margin-left: 75px;
     margin-right: 75px;
 }
 
 #thankYou{
+    display:flex;
+    flex-shrink: 5;
     font-family: Abel;
     font-style: normal;
     font-weight: normal;
@@ -109,7 +106,9 @@ h2{
 
 }
 
-.resourceDescription{
+/* collapsible styling source: https://www.w3schools.com/howto/howto_js_collapsible.asp */
+
+.resourceDescription, .itemsToBring, .collapsible{
     border-radius: 14px;
     border-color: black;
     border-style: solid;
@@ -119,9 +118,28 @@ h2{
     font-family: Abel;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     margin-top: 50px;
     padding: 20px;
+}
+
+.collapsible{
+    display:block;
+    background-color: black;
+    color:white;
+    margin-top: 0px;
+    text-align: left;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.itemsToBring{
+    margin-top: 0px;
+    display:none;
+}
+
+.active, .collapsible:hover {
+    background-color:white;
+    color:black;
 }
 
 .resourceText{
@@ -131,9 +149,18 @@ h2{
     flex-shrink: 2;
 }
 
-/* .contact-info{
-    margin: 20px;
-} */
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 22px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
 
 .logo{
     margin-left: 10px;

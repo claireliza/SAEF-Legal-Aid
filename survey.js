@@ -88,7 +88,7 @@ const surveyArray = [
                                                                 text: "No",
                                                                 question: "",
                                                                 answers: [],
-                                                                resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                                resources: ["HFS A5.21", "GCLC A5.21"],
                                                             },
                                                         ],
                                                     },
@@ -106,7 +106,7 @@ const surveyArray = [
                                                                 text: "No",
                                                                 question: "",
                                                                 answers: [],
-                                                                resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                                                resources: ["HFS A4.221"],
                                                             },
                                                         ],
                                                     },
@@ -116,7 +116,7 @@ const surveyArray = [
                                                 text: "No",
                                                 question: "",
                                                 answers: [],
-                                                resources: ["Healthcare & Family Services"],
+                                                resources: ["HFS A3.21"], 
                                             },
                                         ],
                                     },
@@ -130,7 +130,7 @@ const surveyArray = [
                                         text: "No, but my child has a disability",
                                         question: "",
                                         answers: [], 
-                                        resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
+                                        resources: ["HFS A2.31", "GCLC A2.31"],
                                     },
                                 ],
                             },
@@ -207,14 +207,14 @@ const definitions = {
 const resourceTexts = {
     
     //Disability
-    "HFS A2.31": "The Illinois Department of Healthcare and Family Services (HFS) have the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
+    "HFS A2.31": "The Illinois Department of Healthcare and Family Services (HFS) has the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     "GCLC A2.31": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence",
     //Don't know parent
-    "HFS A2.21": "If you aren't sure who the child's other parent is, the Illinois Department of Healthcare and Family Services (HFS) can help identify and locate them. If they are successful, they can then proceed with legally requiring them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
+    "HFS A3.21": "If you aren't sure who the child's other parent is, the Illinois Department of Healthcare and Family Services (HFS) can help identify and locate them. If they are successful, they can then proceed with legally requiring them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     //Parent does not live in the same state
     "HFS A4.221": "The Illinois Department of Healthcare and Family Services (HFS) can help you legally require the child's other parent to pay child support, free of charge, even if they live out of state. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     //General child support
-    "HFS A5.21": "The Illinois Department of Healthcare and Family Services (HFS) have the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
+    "HFS A5.21": "The Illinois Department of Healthcare and Family Services (HFS) has the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     "GCLC A5.21": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence",
 
 }
@@ -224,14 +224,22 @@ const itemsToBring ={
     "HFS A2.31":"You should have medical records concerning your child's disbility. You also should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
     "GCLC A2.31": "You should have medical records concerning your child's disbility. Additionally, you must have an exact or last known address for the other parent's place of residence. You should also have personal financial information such as copies of recent pay-stubs, proof of LINK/SNAP, or proof of SSI.",
     //Don't know parent
-    "HFS A2.21":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A3.21":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
     //Parent not in the same state
-    "HFS A2.221":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A4.221":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
     //General child support
     "HFS A5.21":"You should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
     "GCLC A5.21": "You must have an exact or last known address for the other parent's place of residence. Additionally, you should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
 }
 
+const contactInfos = {
+    "HFS A2.31": "<img src='assets/HFS-logo.jpg' alt='HFS logo' class='logo'></img> <p><a href='http://www.hfs.illinois.gov/'>Visit Website</a></p><p><a href='tel:2122222020'>212-222-2020</a></p><p>Mon-Fri 9-5</p><p>33 Main St. Chicago, IL</p>",
+    "GCLC A2.31": "<img src= 'assets/gclc_logo.png' alt='Chicago legal clinic logo' class='logo'></img><h4>Child Support & Parentage Pro Se Advice Desk</h4><p>Mon-Fri 9-5</p><p>102 Libert Ave. Chicago, IL</p><a href='https://clclaw.org/'>Visit Website</a><a href='tel:2122222020'>212-222-2020</a>",
+    "HFS A3.21": "<img src='assets/HFS-logo.jpg' alt='HFS logo' class='logo'></img> <p><a href='http://www.hfs.illinois.gov/'>Visit Website</a></p><p><a href='tel:2122222020'>212-222-2020</a></p><p>Mon-Fri 9-5</p><p>33 Main St. Chicago, IL</p>",
+    "HFS A5.21": "<img src='assets/HFS-logo.jpg' alt='HFS logo' class='logo'></img> <p><a href='http://www.hfs.illinois.gov/'>Visit Website</a></p><p><a href='tel:2122222020'>212-222-2020</a></p><p>Mon-Fri 9-5</p><p>33 Main St. Chicago, IL</p>",
+    "GCLC A5.21": "<img src= 'assets/gclc_logo.png' alt='Chicago legal clinic logo' class='logo'></img><h4>Child Support & Parentage Pro Se Advice Desk</h4><p>Mon-Fri 9-5</p><p>102 Libert Ave. Chicago, IL</p><a href='https://clclaw.org/'>Visit Website</a><a href='tel:2122222020'>212-222-2020</a>",
+    "HFS A4.221": "<img src='assets/HFS-logo.jpg' alt='HFS logo' class='logo'></img> <p><a href='http://www.hfs.illinois.gov/'>Visit Website</a></p><p><a href='tel:2122222020'>212-222-2020</a></p><p>Mon-Fri 9-5</p><p>33 Main St. Chicago, IL</p>"
+}
 
 function makeSurvey(array) {
     /* 
@@ -481,10 +489,67 @@ function showResources(resources) {
     /* 
     Displays all the <div> elements with information about resources that are specified in the string array 'resources'.
      */
-    for (const r of resources) {
-        // document.getElementById(r).style.display = "initial";
-        document.getElementById(r).style.display = "flex";
+    // for (const r of resources) {
+    //     // document.getElementById(r).style.display = "initial";
+    //     document.getElementById(r).style.display = "flex";
+    // }
+
+    for(const r of resources){
+
+        //resource info
+        let el = document.createElement("div");
+        el.classList.add("resourceDescription");
+        //contact info
+        let contact = document.createElement("div");
+        contact.classList.add("contactInfo");
+        contact.innerHTML=contactInfos[r];
+        //resource description
+        let p = document.createElement("p");
+        p.classList.add("resourceText");
+        p.innerHTML=resourceTexts[r];
+        el.appendChild(contact);
+        el.appendChild(p);
+
+        //what to bring
+        //collapsible button
+        let button = document.createElement("div");
+        button.classList.add("collapsible");
+        //button.type = "button";
+        button.innerText = "What to Bring With You:"
+        //content of collapsible
+        let content = document.createElement("div");
+        content.classList.add("itemsToBring");
+        let p2 = document.createElement("p");
+        p2.classList.add("resourceText");
+        p2.innerHTML=itemsToBring[r];
+        content.appendChild(p2);
+        button.addEventListener("click", function(){
+            this.classList.toggle("active");
+            if (content.style.display === "flex") {
+                content.style.display = "none";
+            } else {
+                console.log("hello");
+                console.log(content);
+                content.style.display = "flex";
+            }
+        });
+
+
+        document.getElementById("resources").appendChild(el);
+        document.getElementById("resources").appendChild(button);
+        document.getElementById("resources").appendChild(content);
     }
+
+    //help us improve button
+    let input = document.createElement("input");
+    input.type = "submit";
+    input.value = "Help us improve the survey";
+    input.classList.add("surveyButton");
+    input.id = "helpUsImprove";
+    input.addEventListener("click", function () {
+        window.open("https://forms.gle/PNjiqthisFfuQ7nq5");
+    });
+    document.getElementById("resources").appendChild(input);
 }
 
 function toggleResources(option) {
@@ -497,10 +562,6 @@ function toggleResources(option) {
         // This branch of the Option tree has the 'resources' property, which means that it's the end of the survey and there are resources to recommend.
         resources.style.display = "initial";
         resources.firstElementChild.style.display = "initial";
-        //resources.lastElementChild.style.display = "initial"; //HELP US IMPROVE BUTTON
-        resources.lastElementChild.addEventListener("click", function () {
-            window.location.assign("review.html");
-        });
         setupLinks(resources);
         showResources(option.getResources());
         return(1);
