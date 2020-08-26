@@ -13,6 +13,7 @@ function Option() {
     this.question = "";
     this.answers = [];
     this.resources = [];
+    this.redirect = "";
     this.lastOption = null;
 
     this.setLastOption = function (option) {
@@ -57,7 +58,7 @@ const surveyArray = [
                 question: "What action would you like to take for <a href='#!'>child support</a>?",
                 answers: [
                     {
-                        text: "Obtain",
+                        text: "Start a Child Support Case",
                         question: "Does the child live with you?",
                         //question: "Are you the child's <a href='#!'>custodial parent</a>?",
                         answers: [
@@ -70,134 +71,6 @@ const surveyArray = [
                                         question: "Do you know who the child's other parent is?",
                                         answers: [
                                             {
-                                                // text: "Yes",
-                                                // question: "Has the other parent's <a href='#!'>legal parentage</a> been established?",
-                                                // answers: [
-                                                //     {
-                                                //         text: "Yes",
-                                                //         question: "How was other parent's <a href='#!'>legal parentage</a> <a href='#!'>established</a>?",
-                                                //         answers: [
-                                                //             {
-                                                //                 text: "Marriage",
-                                                //                 question: "Which of the following options best describes your current relationship with the child's other parent?",
-                                                //                 answers: [
-                                                //                     {
-                                                //                         text: "Married",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "Legally Separated",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "Divorced",
-                                                //                         question: "Was a child support order entered into your (marital) settlement agreement?",
-                                                //                         answers: [
-                                                //                             {
-                                                //                                 text: "Yes",
-                                                //                                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                //                                 answers: [
-                                                //                                     {
-                                                //                                         text: "Yes",
-                                                //                                         question: "",
-                                                //                                         answers: [],
-                                                //                                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                                     },
-                                                //                                     {
-                                                //                                         text: "No",
-                                                //                                         question: "",
-                                                //                                         answers: [],
-                                                //                                         resources: ["Healthcare & Family Services"],
-                                                //                                     },
-                                                //                                 ],
-                                                //                             },
-                                                //                             {
-                                                //                                 text: "No",
-                                                //                                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                //                                 answers: [
-                                                //                                     {
-                                                //                                         text: "Yes",
-                                                //                                         question: "",
-                                                //                                         answers: [],
-                                                //                                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                                     },
-                                                //                                     {
-                                                //                                         text: "No",
-                                                //                                         question: "",
-                                                //                                         answers: [],
-                                                //                                         resources: ["Healthcare & Family Services"],
-                                                //                                     },
-                                                //                                 ],
-                                                //                             },
-                                                //                         ],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "Civil Union",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                     },
-                                                //                 ],
-                                                //             },
-                                                //             {
-                                                //                 text: "VAP",
-                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                //                 answers: [
-                                                //                     {
-                                                //                         text: "Yes",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "No",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services"],
-                                                //                     },
-                                                //                 ],
-                                                //             },
-                                                //             {
-                                                //                 text: "Not Sure",
-                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                //                 answers: [
-                                                //                     {
-                                                //                         text: "Yes",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "No",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services"],
-                                                //                     },
-                                                //                 ],
-                                                //             },
-                                                //             {
-                                                //                 text: "Other",
-                                                //                 question: "Does the child's other <a href='#!'>legal parent</a> live in the same state as you?",
-                                                //                 answers: [
-                                                //                     {
-                                                //                         text: "Yes",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                     },
-                                                //                     {
-                                                //                         text: "No",
-                                                //                         question: "",
-                                                //                         answers: [],
-                                                //                         resources: ["Healthcare & Family Services", "Chicago Legal Clinic"],
-                                                //                     },
-                                                //                 ],
-                                                //             },
-                                                //         ],
-                                                //     },
-                                                //     {
-
                                                 text: "Yes",
                                                 question: "Does the child's other parent live in the same state as you?",
                                                 answers: [
@@ -209,7 +82,7 @@ const surveyArray = [
                                                                 text: "Yes",
                                                                 question: "",
                                                                 answers: [], 
-                                                                resources: ["Divorce"], //how to get a divorce
+                                                                redirect: "Divorce", //how to get a divorce
                                                             },
                                                             {
                                                                 text: "No",
@@ -227,7 +100,7 @@ const surveyArray = [
                                                                 text: "Yes",
                                                                 question: "",
                                                                 answers: [], 
-                                                                resources: ["Divorce"], //how to get a divorce
+                                                                redirect: "Divorce", //how to get a divorce
                                                             },
                                                             {
                                                                 text: "No",
@@ -250,7 +123,8 @@ const surveyArray = [
                                     {
                                         text: "No",
                                         question: "",
-                                        answers: [], //file for college expenses, enforcing support order 
+                                        answers: [], 
+                                        redirect: "College or Enforcing", //file for college expenses, enforcing support order 
                                     },
                                     {
                                         text: "No, but my child has a disability",
@@ -263,42 +137,43 @@ const surveyArray = [
                             {
                                 text: "No",
                                 question: "",
-                                answers: [], // go to getting custody questionnaire
+                                answers: [], 
+                                redirect: "Getting Custody", // go to getting custody questionnaire
                             },
                         ],
                     },
-                    {
-                        text: "Modify",
-                        question: "",
-                        answers: [],
-                    },
-                    {
-                        text: "Enforce",
-                        question: "",
-                        answers: [],
-                    },
-                    {
-                        text: "Terminate",
-                        question: "",
-                        answers: [],
-                    },
+                    // {
+                    //     text: "Modify",
+                    //     question: "",
+                    //     answers: [],
+                    // },
+                    // {
+                    //     text: "Enforce",
+                    //     question: "",
+                    //     answers: [],
+                    // },
+                    // {
+                    //     text: "Terminate",
+                    //     question: "",
+                    //     answers: [],
+                    // },
                 ],
             },
-            {
-                text: "Divorce",
-                question: "What action would you like to take for divorce?",
-                answers: [],
-            },
-            {
-                text: "Annulment",
-                question: "What action would you like to take for annulment?",
-                answers: [],
-            },
-            {
-                text: "Legal Separation",
-                question: "What action would you like to take for legal separation?",
-                answers: [],
-            },
+            // {
+            //     text: "Divorce",
+            //     question: "What action would you like to take for divorce?",
+            //     answers: [],
+            // },
+            // {
+            //     text: "Annulment",
+            //     question: "What action would you like to take for annulment?",
+            //     answers: [],
+            // },
+            // {
+            //     text: "Legal Separation",
+            //     question: "What action would you like to take for legal separation?",
+            //     answers: [],
+            // },
         ]
     }
 ];
@@ -337,8 +212,10 @@ const definitions = {
     "Medicaid": "<p>Medicaid is a program offered by the Illinois Department of Healthcare and Family Services (HFS) that pays for certain medical services for eligible children, senior adults, or disabled persons.Eligibility is determined by income – more information can be found here. [https://www.benefits.gov/benefit/1628]</p> <p>Some things to know about Medicaid:</p> <ul><li>If you are a recipient of Medicaid, you are automatically enrolled in HFS's IV-D program, otherwise known as child support enforcement services</li> <li>If you have a child support case, and the custodial parent is a Medicaid recipient, the child support order may require the non-custodial parent to pay cash medical support</li></ul>",
     "Temporary Assistance to Needy Families": "<p>Temporary Assistance to Needy Families (TANF) is a program that provides cash benefits to pregnant mothers or parents caring for children under the age of 18 or are full- time high; school students.It is offered by the Illinois Department of Public Heath, and you will have to; apply in person – find an office near you here[http://www.dhs.state.il.us/page.aspx?module=12&officetype&county=Cook]. More information on program eligibility can be found here[https://www.benefits.gov/benefit/1662].</p> <p>Some things to know about TANF:</p> <ul><li>If you are a TANF recipient, you are automatically enrolled in the Illinois Department of Healthcare and Family Services(HFS) IV- D program, otherwise known as child support;enforcement services</li> <li>If eligible, TANF recipients will also receive LINK/SNAP benefits</li></ul>",
     "LINK/SNAP": "<p>The Supplemental Nutritional Assistance Program (SNAP), also known as \"food stamps\", is a program managed in Illinois by the Illinois Department of Human Services (DHS) that provides financial assistance for the costs of buying food.</p> <p>If you are eligible for SNAP cash benefits, you are also eligible to receive an Illinois LINK card, which works like as a debit card.DHS will regularly put the money you receive for SNAP on your LINK card, and you can use the card at eligible stores – make sure to ask an employee or look for a sign on the store window to make sure you can use your LINK card to purchase food.</p> <p>Foods and programs that are covered by SNAP includes, but are not necessarily limited to the following:</p>\; <ul><li>grains, dairy, fruits, vegetables, meat / fish / poultry, and dairy products</li> <li>plants or seeds for the purposes of growing food</li> <li>meals - on - wheels; and</li> <li>meals at eligible shelters, group homes and rehabilitation facilities.</li></ul> <p>Learn more about SNAP program requirements here[https://www.dhs.state.il.us/page.aspx?item=30357], and you can use this link [https://fscalc.dhs.illinois.gov/FSCalc/] to find out if you are eligible.</p>",
-    "SSI": "<p>Supplemental Security Income (SSI) is a need-based program offered by the federal government that provides monthly cash benefits to the following low- income individuals:</p> <ul><li>those aged 65 or older</li> <li>those with certain documented physical or mental disabilities</li> <li>those who are blind; and</li> <li>in some cases, minor children that are disabled or blind</li></ul> <p>You can visit the Social Security Administration's website here [https://www.ssa.gov/ssi/text-eligibility-ussi.htm] to see if you are eligible to receive SSI.</p> <p>It is important to note that SSI disability payments CANNOT be garnished or withheld [income withholding]for the purposes of making child support payments.</p>"
-
+    "SSI": "<p>Supplemental Security Income (SSI) is a need-based program offered by the federal government that provides monthly cash benefits to the following low- income individuals:</p> <ul><li>those aged 65 or older</li> <li>those with certain documented physical or mental disabilities</li> <li>those who are blind; and</li> <li>in some cases, minor children that are disabled or blind</li></ul> <p>You can visit the Social Security Administration's website here [https://www.ssa.gov/ssi/text-eligibility-ussi.htm] to see if you are eligible to receive SSI.</p> <p>It is important to note that SSI disability payments CANNOT be garnished or withheld [income withholding]for the purposes of making child support payments.</p>",
+    "Getting Custody": "Would you like help with Getting Custody? If you believe you do not have primary custody of the child, you CANNOT receive child support payments from the child's other parent. If you would like to get primary custody of your child, consider answering a few more questions to find legal help.",
+    "College or Enforcing": "Would you like help with filing for educational expenses? <p>If your child is over 17 or has already graduated high school, you typically CANNOT receive child support payments for this child. However, if you believe your child is planning on attending or is currently enrolled in college or another type of higher education, you may be able to receive financial assistance from the other parent. This is referred to as college expenses. Consider answering a few more questions if you'd like to find legal help with college expenses.</p><p>Would you like help with Enforcing a Child Support Order?</p><p> If you believe you currently or previously had a child support order concerning this child that is now over 18, and you are still owed overdue child support payments, you can get legal help with making the other parent pay what they owe. This is called enforcing a child support order. Consider answering a few more questions if you'd like to find legal help.</p>",
+    "Divorce": "Would you like help with Getting a Divorce?<p>If you are currently married to the child's other parent, you cannot start a child support case against them. In order to do so you would have to file for a divorce. Consider answering a few more questions if you'd like to find legal help with getting a divorce.</p><p>Would you like help with Dissolving a Civil Union?</p><p>If you are currently in a civil union with the child's other parent, you cannot start a child support case against them. In order to do so, you would have to dissolve your civil union. Consider answering a few more questions if you'd like to find legal help with dissolving a civil union.</p>"
 };
 
 
@@ -352,6 +229,9 @@ function makeSurvey(array) {
         const e = array[i];
         o.text = e.text;
         o.question = e.question;
+        if(o.hasOwnProperty("redirect")){
+            o.redirect = e.redirect;
+        }
         if (o.hasOwnProperty("resources")) {
             o.resources = e.resources;
         }
@@ -445,24 +325,17 @@ function replaceButtons(option) {
      */
 
     // Remove old buttons
-    // Remove old icons
+
     const buttonArea = document.getElementById("buttons");
-   //const iconArea = document.getElementById("icons");
-    
     // SOURCE: https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
     let b = buttonArea.firstElementChild;
-    //let i = iconArea.firstElementChild;
     while (b) {
         buttonArea.removeChild(b);
         b = buttonArea.firstChild;
     }
-    // while (i) {
-    //     iconArea.removeChild(i);
-    //     i = iconArea.firstChild;
-    // }
 
     // Create new buttons
-    // CREATE ICONS HERE!!! WITH CLASS AS ICON AND ID AS THEIR DEFINITION
+
     for (let i = 0; i < option.getAnswers().length; i++) {
         const answer = option.getAnswers()[i];
 
@@ -473,30 +346,15 @@ function replaceButtons(option) {
         //me
         button.setAttribute("class", "surveyButton");
         button.addEventListener("click", function () {
-            setup(answer);
+            if(answer.redirect !== undefined){ //if an alternate referall quiz exists, create popup windows
+                createModal("defModal", definitions[answer.redirect]);
+            } else{
+                setup(answer);
+            }
         });
-
-
-        //claire
-       // const icon = document.createElement("span");
-        // const icon = document.createElement("img");
-
-        // //icon styling
-        // icon.setAttribute("src", "assets/information\ 10.png");
-        // icon.style.width="50px";
-        // icon.style.paddingLeft="85px";
-        // icon.style.paddingRight="85px";
-        // icon.id = answer.text;
-
-        // icon.addEventListener("click", function () {
-        //     const d = definitions[icon.id]; //MAKE THIS NOT CASE SENSITIVE
-        //     createModal("defModal", d); //creates modal window
-        //     setupHover(document.getElementById("defModal"));
-        // });
 
         // Insert new button
         buttonArea.appendChild(button);
-        //iconArea.appendChild(icon);
 
         //allows for longer buttons
         button.style.width = (  (Math.max((button.clientWidth + 5), 200))  + "px"); 
@@ -520,17 +378,11 @@ function setupLinks(div) {
     var isEmpty = document.getElementById("defModal").innerHTML === "";
 
     for (const a of links) {
-        //a.style.color = "#0066ff"; //sets link color to bright blue
         a.style.color = "black"; //sets link color to black
 
         a.style.textDecoration = "#underline"; //sets link underline
 
         //let content = a.innerHTML;
-
-        //trying to create icons
-        // let icon = document.createElement("span");
-        // icon.className="icon";
-        // a.appendChild(icon);
 
         // a.classList.add("icon");
         a.addEventListener("click", function () {
