@@ -53,7 +53,7 @@ const surveyArray = [
     {
         text: "Begin Survey",
         question: "What do you need help with?",
-        explanation: "Start your questionnaire here!",
+        explanation: "Click me for info while you fill out this questionnaire",
         answers: [
             {
                 text: "Child Support",
@@ -594,7 +594,12 @@ function setupExplanation(option){
     // Change icon explanation popup
     const explanationArea = document.getElementById("footer");
     const explanation = document.getElementById("explanationModal");
-    explanation.style.display="none";
+    if(option.question!= "What do you need help with?") {
+        explanation.style.display="none";
+    } else{
+        explanation.style.display="block";
+        explanation.innerHTML = option.explanation;
+    }
     const explIcon = document.getElementById("bottomIcon");
     const newExplIcon = document.createElement("img");
 
@@ -610,7 +615,7 @@ function setupExplanation(option){
                 explanation.innerHTML = option.explanation;
             }
 
-        } else{
+        } else {
             explanation.style.display="none";
         }
     });
