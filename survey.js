@@ -11,6 +11,7 @@ function Option() {
     */
     this.text = "";
     this.question = "";
+    this.explanation="";
     this.answers = [];
     this.resources = [];
     this.redirect = "";
@@ -60,22 +61,27 @@ const surveyArray = [
                     {
                         text: "Start a Child Support Case",
                         question: "Does the child live with you more often than they live with the other parent?",
+                        explanation: "<p>If a parent is legally required to be a child's primary caretaker, they are called the child's custodial parent.</p>",
                         answers: [
                             {
                                 text: "Yes",
                                 question: "Is the child younger than 18 or in high school?",
+                                explanation: "<p>Unless a child has a disability, new child support orders generally cannot be made for children 18 or older.</p>",
                                 answers: [
                                     {
                                         text: "Yes",
                                         question: "Do you know who the child's other parent is?",
+                                        explanation: "<p>If you do not know who the child's other parent is, there are free and affordable resources available to help identify and locate them.</p>",
                                         answers: [
                                             {
                                                 text: "Yes",
                                                 question: "Does the child's other parent live in the same state as you?",
+                                                explanation: "<p>Even if the child's parent lives out-of-state, there are free and affordable resources available to you to start a child support case against them.</p<",
                                                 answers: [
                                                     {
                                                         text: "Yes",
                                                         question: "Are you married to (or in a civil union with) the child's other parent?",
+                                                        explanation: "<p>Generally speaking, you cannot legally require your spouse or partner to pay child support.</p>",
                                                         answers: [
                                                             {
                                                                 text: "Yes",
@@ -94,6 +100,7 @@ const surveyArray = [
                                                     {
                                                         text: "No",
                                                         question: "Are you married to (or in a civil union with) the child's other parent?",
+                                                        explanation: "<p>Generally speaking, you cannot legally require your spouse or partner to pay child support</p>",
                                                         answers: [
                                                             {
                                                                 text: "Yes",
@@ -190,7 +197,6 @@ const definitions = {
     "legal parentage": "A presumed parent is the legal parent of a child. In other words, if you are presumed to be the parent of a child, then your legal parentage is officially <a href='#!'>established</a>. <p>One is presumed to be the legal parent of a child if at least one of the following conditions are met:</p> <ul><li>you are married to or in a civil union with the child's biological mother at the time the child is born (unless there is a gestational surrogacy agreement); or</li> <li>the child is born within 300 days after you have divorced or your civil union with the child's biological mother is dissolved [dissolution of civil union]</li></ul>",
     "established": "Establishing parentage is the process through which one becomes the legal parent of a child. Parentage can be established through one of the following ways: <ul><li>the biological mother having given birth to the child</li> <li>being the presumed parent of the child through a marriage or civil union</li> <li>signing a Voluntary Acknowledgement of Parentage (VAP) for the child</li> <li>legally adopting the child</li> <li>a valid gestational surrogacy agreement; or</li> <li>an adjudication of parentage, either by a judge in court or through the Illinois Department of Healthcare and Family Services(HFS)</li></ul>",
     "legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul>",
-    //"legal parent": "The legal parent of a child is a parent with a legally <a href='glossary.html#established' target='_blank'>established</a> parent-child relationship.If you are the legal parent of a child, your name likely should be on the child's birth certificate. <p>A child's legal parent is allowed to do the following:</p> <ul><li>make or receive child support payments</li> <li>pursue getting custody of a child</li> <li>pursue visitation rights (parenting time) with a child</li></ul> <p>Depending on how the legal parentage was originally established [establishing parentage], one can possibly no longer be deemed a child's legal parent through one of the following ways:</p> <ul><li>declaring the non-existence of a parent-child relationship</li> <li>a denial of parentage; or</li> <li>challenging a VAP</li></ul>",
     "HFS": "The Illinois Department of Healthcare and Family Services (HFS) is an administrative agency with two primary functions: <ol><li>Providing Medicaid coverage to those who qualify; and</li><li>Child support enforcement services through the IV-D program</li></ol> <p>Enrolling in the IV-D program gives HFS the right to establish legal parentage, as well as enter and enforce an administrative child support order.Additionally, HFS can provide help with judicial child support orders through appointing a state's attorney to represent HFS in court.</p> <p>You can visit HFS's website to learn more here [https://www.illinois.gov/hfs/About/Pages/About.aspx]</p>",
     "administrative child support order": "An administrative child support order is a legally-binding child support order that is entered by the Illinois Department of Healthcare and Family Services(HFS).This means that in order to modify, enforce, or terminate an administrative child support order, you will have to either call HFS or visit their downtown office. <p>If you are the custodial parent or are receiving child support payments through an administrative child support order, this means you are enrolled in HFS's IV-D program, or child support enforcement services.</p> <p>If you have a copy of your child support order, you can tell if it is an administrative child support order if it contains an administrative case number.Otherwise, it might be a judicial child support order with a docket number.</p>",
     "IV-D": "<p>If you are the custodial parent of a child that is over the age of 17 and/or has graduated high school that plans on enrolling, or is currently enrolled in college or another post- secondary educational institution, you may be; able to receive financial assistance from the child's other legal parent with educational expenses.</p> <p>Expenses that can be covered by educational expenses may include:</p> <ul><li>tuition</li> <li>room-and-board</li> <li>books and other school supplies</li> <li>medical expenses; and/or</li> <li>general costs of living</li></ul> <p>Additionally, if your child has not yet applied to college, you may be able to obtain funds to finance college application fees, college entrance examination fees, or a prepatory course for a college entrance examination. If your child has applied to college, your child must submit the Free Application for Federal Student Aid (FAFSA) and any other financial aid forms prior to you filing for college expenses.</p> <p>Your child may be DISQUALIFIED from receiving college expenses if:</p> <ul><li>your child is over the age of 23</li> <li>your child enters into a marriage or civil union; or</li> <li>fails to maintain a cumulative \"C\" grade average while in college</li></ul>",
@@ -248,8 +254,12 @@ function makeSurvey(array) {
         const e = array[i];
         o.text = e.text;
         o.question = e.question;
+        o.explanation = e.explanation;
         if(o.hasOwnProperty("redirect")){
             o.redirect = e.redirect;
+        }
+        if(o.hasOwnProperty("explanation")){
+            o.explanation = e.explanation;
         }
         if (o.hasOwnProperty("resources")) {
             o.resources = e.resources;
@@ -268,7 +278,6 @@ function setupBackButton(option) {
     /*
     Takes whatever branch of the Option tree you are on and creates a button that will take you to the branch that came before it, taking you one step back in the survey. If you go back to the beginning, this button will take you to start_survey.html.
     */
-    /*document.getElementById("question_area").style.display = "initial"; //claire ADDED THIS */
 
     const backButtonArea = document.getElementById("back");
     const backButton = document.getElementById("back_button");
@@ -465,6 +474,22 @@ function createModal(id, d){
         body.appendChild(bg);
     }
 
+    let close = document.createElement("span");
+    el.appendChild(close);
+    if(id==="defModal"){
+        close.className = "modal-js-close";
+    }
+    close.innerHTML = "x";
+    close.addEventListener('click', function () {
+        if(id==="defModal"){
+            body.removeChild(document.getElementById("overlay"));
+        }
+        el.classList.remove('on');
+        document.getElementById("modalBox").classList.remove('on');
+        el.innerHTML = ""; //clears modal
+        //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
+    });
+
     // Source: https://gomakethings.com/detecting-clicks-inside-an-element-with-vanilla-javascript/
     bg.addEventListener('click', function (event) {
 
@@ -483,13 +508,6 @@ function createModal(id, d){
 }
 
 function showResources(resources) {
-    /* 
-    Displays all the <div> elements with information about resources that are specified in the string array 'resources'.
-     */
-    // for (const r of resources) {
-    //     // document.getElementById(r).style.display = "initial";
-    //     document.getElementById(r).style.display = "flex";
-    // }
 
     for(const r of resources){
 
@@ -525,8 +543,6 @@ function showResources(resources) {
             if (content.style.display === "flex") {
                 content.style.display = "none";
             } else {
-                console.log("hello");
-                console.log(content);
                 content.style.display = "flex";
             }
         });
@@ -572,12 +588,44 @@ function toggleResources(option) {
     }
 }
 
+function setupExplanation(option){
+    // Change icon explanation popup
+    const explanationArea = document.getElementById("footer");
+    const explanation = document.getElementById("explanationModal");
+    explanation.style.display="none";
+    const explIcon = document.getElementById("bottomIcon");
+    const newExplIcon = document.createElement("img");
+
+    newExplIcon.setAttribute("src", "assets/infoIcon.png");
+    newExplIcon.setAttribute("id", "bottomIcon");
+    
+    newExplIcon.addEventListener("click", function toggleExplanation(){
+        console.log("click");
+        if(explanation.style.display==="none"){
+
+            if(option.explanation!==undefined){
+                explanation.style.display="block";
+                explanation.innerHTML = option.explanation;
+            }
+
+        } else{
+            explanation.style.display="none";
+        }
+    });
+
+    explanationArea.replaceChild(newExplIcon, explIcon);   
+}
+
 function setup(option) {
     /* 
     Sets up all visble elements on the page.
      */
+
     // Set up back button
     setupBackButton(option);
+
+    // Set up explanation icon
+    setupExplanation(option);
 
     // Update progress bar
     setupProgressBar(option);
@@ -586,11 +634,14 @@ function setup(option) {
     const q = document.getElementById("question");
     q.innerHTML = option.question;
 
+    
     // Set up links for defintions
     setupLinks(q.parentElement);
 
     // Remove old buttons and create new buttons
     replaceButtons(option);
+    // document.getElementById("footer").removeEventListener("click", toggleExplanation);
+
 
     // Show resources if the survey is over, hides question area if it is
     const end = toggleResources(option);
