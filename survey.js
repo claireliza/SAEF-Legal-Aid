@@ -53,35 +53,37 @@ const surveyArray = [
     {
         text: "Begin Survey",
         question: "What do you need help with?",
+        explanation: "Start your questionnaire here!",
         answers: [
             {
                 text: "Child Support",
                 question: "What action would you like to take for child support?",
+                explanation: "What legal issue can we help you with?",
                 answers: [
                     {
                         text: "Start a Child Support Case",
                         question: "Does the child live with you more often than they live with the other parent?",
-                        explanation: "<p>If a parent is legally required to be a child's primary caretaker, they are called the child's custodial parent.</p>",
+                        explanation: "If a parent is legally required to be a child's primary caretaker, they are called the child's custodial parent.",
                         answers: [
                             {
                                 text: "Yes",
                                 question: "Is the child younger than 18 or in high school?",
-                                explanation: "<p>Unless a child has a disability, new child support orders generally cannot be made for children 18 or older.</p>",
+                                explanation: "Unless a child has a disability, new child support orders generally cannot be made for children 18 or older.",
                                 answers: [
                                     {
                                         text: "Yes",
                                         question: "Do you know who the child's other parent is?",
-                                        explanation: "<p>If you do not know who the child's other parent is, there are free and affordable resources available to help identify and locate them.</p>",
+                                        explanation: "If you do not know who the child's other parent is, there are free and affordable resources available to help identify and locate them.",
                                         answers: [
                                             {
                                                 text: "Yes",
                                                 question: "Does the child's other parent live in the same state as you?",
-                                                explanation: "<p>Even if the child's parent lives out-of-state, there are free and affordable resources available to you to start a child support case against them.</p<",
+                                                explanation: "Even if the child's parent lives out-of-state, there are free and affordable resources available to you to start a child support case against them.",
                                                 answers: [
                                                     {
                                                         text: "Yes",
                                                         question: "Are you married to (or in a civil union with) the child's other parent?",
-                                                        explanation: "<p>Generally speaking, you cannot legally require your spouse or partner to pay child support.</p>",
+                                                        explanation: "Generally speaking, you cannot legally require your spouse or partner to pay child support.",
                                                         answers: [
                                                             {
                                                                 text: "Yes",
@@ -100,7 +102,7 @@ const surveyArray = [
                                                     {
                                                         text: "No",
                                                         question: "Are you married to (or in a civil union with) the child's other parent?",
-                                                        explanation: "<p>Generally speaking, you cannot legally require your spouse or partner to pay child support</p>",
+                                                        explanation: "Generally speaking, you cannot legally require your spouse or partner to pay child support",
                                                         answers: [
                                                             {
                                                                 text: "Yes",
