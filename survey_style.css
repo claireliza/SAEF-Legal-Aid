@@ -215,13 +215,13 @@ h2{
     color:white;
 
     text-align: center;
-    overflow: scroll;
+    /* overflow: scroll; */
     width: 80%;
     left: 7.5%;
 }
 
 #defModal{
-    max-height: 500px;
+    /* max-height: 500px; */
     background: #333333;
     color:white;
     margin-left:10%;

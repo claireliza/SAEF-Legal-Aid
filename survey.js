@@ -206,34 +206,34 @@ const definitions = {
     "Temporary Assistance to Needy Families": "<p>Temporary Assistance to Needy Families (TANF) is a program that provides cash benefits to pregnant mothers or parents caring for children under the age of 18 or are full- time high; school students.It is offered by the Illinois Department of Public Heath, and you will have to; apply in person – find an office near you here[http://www.dhs.state.il.us/page.aspx?module=12&officetype&county=Cook]. More information on program eligibility can be found here[https://www.benefits.gov/benefit/1662].</p> <p>Some things to know about TANF:</p> <ul><li>If you are a TANF recipient, you are automatically enrolled in the Illinois Department of Healthcare and Family Services(HFS) IV- D program, otherwise known as child support;enforcement services</li> <li>If eligible, TANF recipients will also receive LINK/SNAP benefits</li></ul>",
     "LINK/SNAP": "<p>The Supplemental Nutritional Assistance Program (SNAP), also known as \"food stamps\", is a program managed in Illinois by the Illinois Department of Human Services (DHS) that provides financial assistance for the costs of buying food.</p> <p>If you are eligible for SNAP cash benefits, you are also eligible to receive an Illinois LINK card, which works like as a debit card.DHS will regularly put the money you receive for SNAP on your LINK card, and you can use the card at eligible stores – make sure to ask an employee or look for a sign on the store window to make sure you can use your LINK card to purchase food.</p> <p>Foods and programs that are covered by SNAP includes, but are not necessarily limited to the following:</p>\; <ul><li>grains, dairy, fruits, vegetables, meat / fish / poultry, and dairy products</li> <li>plants or seeds for the purposes of growing food</li> <li>meals - on - wheels; and</li> <li>meals at eligible shelters, group homes and rehabilitation facilities.</li></ul> <p>Learn more about SNAP program requirements here[https://www.dhs.state.il.us/page.aspx?item=30357], and you can use this link [https://fscalc.dhs.illinois.gov/FSCalc/] to find out if you are eligible.</p>",
     "SSI": "<p>Supplemental Security Income (SSI) is a need-based program offered by the federal government that provides monthly cash benefits to the following low- income individuals:</p> <ul><li>those aged 65 or older</li> <li>those with certain documented physical or mental disabilities</li> <li>those who are blind; and</li> <li>in some cases, minor children that are disabled or blind</li></ul> <p>You can visit the Social Security Administration's website here [https://www.ssa.gov/ssi/text-eligibility-ussi.htm] to see if you are eligible to receive SSI.</p> <p>It is important to note that SSI disability payments CANNOT be garnished or withheld [income withholding]for the purposes of making child support payments.</p>",
-    "Getting Custody": "Would you like help with Getting Custody? <p> If you believe you do not have primary custody of the child, you CANNOT receive child support payments from the child's other parent. If you would like to get primary custody of your child, consider <a href='custody.html' class='popup'>answering a few more questions</a> to find legal help. Or, click outside this box to choose a different response.</p>",
-    "College or Enforcing": "Would you like help with filing for educational expenses? <p>If your child is over 17 or has already graduated high school, you typically CANNOT receive child support payments for this child. However, if you believe your child is planning on attending or is currently enrolled in college or another type of higher education, you may be able to receive financial assistance from the other parent. This is referred to as college expenses. Consider <a href='custody.html' class='popup'>answering a few more questions</a> if you'd like to find legal help with college expenses. Or, click outside this box to choose a different response.</p><p>Would you like help with Enforcing a Child Support Order?</p><p> If you believe you currently or previously had a child support order concerning this child that is now over 18, and you are still owed overdue child support payments, you can get legal help with making the other parent pay what they owe. This is called enforcing a child support order. Consider <a href='custody.html' class='popup'> answering a few more questions</a> if you'd like to find legal help. Or, click outside this box to choose a different response.</p>",
-    "Divorce": "Would you like help with Getting a Divorce?<p>If you are currently married to the child's other parent, you cannot start a child support case against them. In order to do so you would have to file for a divorce. Consider <a href='custody.html' class='popup'>answering a few more questions</a> if you'd like to find legal help with getting a divorce. Or, click outside this box to choose a different response.</p><p>Would you like help with Dissolving a Civil Union?</p><p>If you are currently in a civil union with the child's other parent, you cannot start a child support case against them. In order to do so, you would have to dissolve your civil union. Consider <a href='custody.html' class='popup'>answering a few more questions</a> if you'd like to find legal help with dissolving a civil union. Or, click outside this box to choose a different response.</p>"
+    "Getting Custody": "Would you like help with getting custody? <p> If you believe you do not have primary custody of the child, you CANNOT receive child support payments from the child's other parent. If you would like to get primary custody of your child, consider choosing to go to a new survey to find legal help. Or, click outside this box to choose a different response.</p>",
+    "College or Enforcing": "Would you like help with filing for educational expenses? <p>If your child is over 17 or has already graduated high school, you typically CANNOT receive child support payments for this child. However, if you believe your child is planning on attending or is currently enrolled in college or another type of higher education, you may be able to receive financial assistance from the other parent. This is referred to as college expenses. Consider choosing to go to a new survey if you'd like to find legal help with college expenses. Or, click outside this box to choose a different response.</p><p>Would you like help with enforcing a child support order?</p><p> If you believe you currently have or previously had a child support order concerning a child who is now over 18, and you are still owed overdue child support payments, you can get legal help with making the other parent pay what they owe. This is called enforcing a child support order. Consider choosing to go to a new survey if you'd like to find legal help. Or, click outside this box to choose a different response.</p>",
+    "Divorce": "Would you like help with getting a divorce?<p>If you are currently married to the child's other parent, you cannot start a child support case against them. In order to do so you would have to file for a divorce. Consider choosing to go to a new survey if you'd like to find legal help with getting a divorce. Or, click outside this box to choose a different response.</p><p>Would you like help with dissolving a civil union?</p><p>If you are currently in a civil union with the child's other parent, you cannot start a child support case against them. In order to do so, you would have to dissolve your civil union. Consider choosing to go to a new survey if you'd like to find legal help with dissolving a civil union. Or, click outside this box to choose a different response.</p>"
 };
 
 const resourceTexts = {
     //Disability
     "HFS A2.31": "The Illinois Department of Healthcare and Family Services (HFS) has the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
-    "GCLC A2.31": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence",
+    "GCLC A2.31": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence.",
     //Don't know parent
     "HFS A3.21": "If you aren't sure who the child's other parent is, the Illinois Department of Healthcare and Family Services (HFS) can help identify and locate them. If they are successful, they can then proceed with legally requiring them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     //Parent does not live in the same state
     "HFS A4.221": "The Illinois Department of Healthcare and Family Services (HFS) can help you legally require the child's other parent to pay child support, free of charge, even if they live out of state. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
     //General child support
     "HFS A5.21": "The Illinois Department of Healthcare and Family Services (HFS) has the resources to attempt to locate a child's other parent and legally require them to pay child support, free of charge. To receive these services, you will have to apply for their child support enforcement services (or the IV-D program). If you are currently receiving Medicaid or Temporary Assistance to Needy Families (TANF), acceptance into the program is guaranteed.",
-    "GCLC A5.21": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence",
+    "GCLC A5.21": "If HFS cannot help you, these attorneys can assist you with obtaining a judicial child support order for free, but ONLY IF you know the exact address for the other parent's place of residence.",
 }
 
 const itemsToBring ={
     //Disability
-    "HFS A2.31":"You should have medical records concerning your child's disbility. You also should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A2.31":"You should have medical records concerning your child's disbility. You also should have personal financial information such as copies of recent pay-stubs, proof of food stamps (LINK/SNAP), or proof of SSI.",
     "GCLC A2.31": "You should have medical records concerning your child's disbility. Additionally, you must have an exact or last known address for the other parent's place of residence. You should also have personal financial information such as copies of recent pay-stubs, proof of LINK/SNAP, or proof of SSI.",
     //Don't know parent
-    "HFS A3.21":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A3.21":"You should have your personal financial information such as copies of recent pay-stubs, proof of food stamps (LINK/SNAP), or proof of SSI.",
     //Parent not in the same state
-    "HFS A4.221":"You should have your personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A4.221":"You should have your personal financial information such as copies of recent pay-stubs, proof of food stamps (LINK/SNAP), or proof of SSI.",
     //General child support
-    "HFS A5.21":"You should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
+    "HFS A5.21":"You should have personal financial information such as copies of recent pay-stubs, proof of food stamps (LINK/SNAP), or proof of SSI.",
     "GCLC A5.21": "You must have an exact or last known address for the other parent's place of residence. Additionally, you should have personal financial information such as copies of recent pay-stubs, proof of foodstamps (LINK/SNAP), or proof of SSI.",
 }
 
@@ -507,6 +507,36 @@ function createModal(id, d){
         el.innerHTML = "";
     
     });
+
+    const buttons = document.createElement("div");
+    buttons.style.display = "flex";
+    buttons.style.justifyContent = "center";
+    const button1 = document.createElement("input");
+    button1.setAttribute("type", "submit");
+    button1.classList.add("surveyButton");
+    button1.setAttribute("value", "Go to new survey");
+    // button1.addEventListener("click", function () {
+            // FILL IN LATER
+    // }
+
+
+    const button2 = document.createElement("input");
+    button2.setAttribute("type", "submit");
+    button2.classList.add("surveyButton");
+    button2.setAttribute("value", "Close");
+    button2.addEventListener("click", function () {
+        if(id==="defModal"){
+            body.removeChild(document.getElementById("overlay"));
+        }
+        el.classList.remove('on');
+        document.getElementById("modalBox").classList.remove('on');
+        el.innerHTML = ""; //clears modal
+    });
+
+    buttons.appendChild(button1);
+    buttons.appendChild(button2);
+    el.appendChild(buttons);
+
 }
 
 function showResources(resources) {
