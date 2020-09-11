@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Begin Survey</title>
+    <!-- Explains the survey. -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="start_style.css" />
+    <link rel="stylesheet" href="navbar_style.css"/>
+
+  </head>
+
+  <style>
+    #largeContainer{
+        display: flex;
+        padding: 50px;
+    }
+
+    #title{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #topText{
+        width: 600px;
+        margin: auto;
+    }
+
+    .infoBox{
+        background-color:#F5F5F7;
+        display: flex;
+        flex-direction: column;
+        border-radius: 14px;
+        padding: 20px;
+        padding-top: 0px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+
+    }
+
+    .infoTitle{
+        text-align: left;
+        font-size: 30px;
+    }
+
+    .infoText{
+        text-align: left;
+        font-size: 26px;
+    }
+
+    .learnMore{
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        width: 120px;
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #surveyLink{
+        background-color: black;
+        color:white;
+        margin:auto;
+        border-radius: 14px;
+        height: 100px;
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+        padding-bottom: 0px;
+
+    }
+
+  </style>
+  <body class="home">
+
+    <div id="topNavBar">
+
+      <div id ="logo" class="page" onclick="location.href='home.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
+      <div id ="pages">
+        <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
+      </div>
+    </div>
+
+    <div id="largeContainer">
+      <div id="backButton">
+        <a href="home.html"><img id="backIcon" src="assets/backarrow.png"></a>
+      </div>
+
+      <div>
+        
+        <div>
+            <h3 id="title">Child Support</h3>
+            <p id="topText"> Before we take you to the referral questionnaire, here is some information that will help us provide you with the most accurate referral possible. Scroll down to start the child support questionnaire.</p>
+        </div>
+        <div class="infoBox"> 
+            <h3 class="infoTitle">THE LEGAL PARENT</h3>
+            <p class="infoText">Only the legal parent of a child can be legally ordered to pay or receive child support. There are a few different ways one can become the legal parent of a child.</p>
+            <button class="learnMore">Learn more</button>
+        </div>
+
+        <div class="infoBox"> 
+            <h3 class="infoTitle">TWO TYPES OF CHILD SUPPORT ORDERS</h3>
+            <p class="infoText">A judicial child support order is made by a judge in court; an administrative order is made by the Department of Healthcare and Family Services. If you have a copy of your child support order, it's easy to find out which one it is.</p>
+            <button class="learnMore">Learn more</button>
+        </div>
+
+        <div id="surveyLink" onclick="location.href='survey.html'" > 
+            <p class="infoText" style="text-align: center;">Take me to the child support referral questionnaire</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

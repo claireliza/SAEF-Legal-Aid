@@ -9,16 +9,47 @@
     <link rel="stylesheet" href="navbar_style.css"/>
 
   </head>
+
+  <style>
+
+    #welcome{
+        text-align: center;
+        background-color: white;;
+    }
+
+    #problemsGrid{
+        display: flex;
+        flex-wrap: wrap;
+        width: 660px;
+        /* justify-content: space-between; */
+        /* align-items: space-between; */
+    }
+
+    .problem{
+        background-color:#F5F5F7;
+        color: black;
+        /* border-style: solid; */
+        border-color: black;
+        width: 200px;
+        /* height:150px; */
+        margin: 10px;
+        border-radius: 10px;
+        text-align: center;
+        padding: 40px 0 40px 0 ;
+        font-size: 20px;
+    }
+
+  </style>
   <body class="home">
 
     <div id="topNavBar">
 
       <div id ="logo" class="page" onclick="location.href='home.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
       <div id ="pages">
-        <!-- <div class="page"><h3 class="navText">Who We Are</h3></div> -->
+        <div class="page"><h3 class="navText">Who We Are</h3></div>
         <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
-        <!-- <div class="page" onclick="location.href='glossary.html'"><h3 class="navText">Legal Dictionary</h3></div> -->
-        <!-- <div class="page"><h3 class="navText">Contact Us</h3></div> -->
+        <div class="page" onclick="location.href='glossary.html'"><h3 class="navText">Legal Dictionary</h3></div>
+        <div class="page"><h3 class="navText">Contact Us</h3></div>
       </div>
     </div>
 
@@ -32,31 +63,26 @@
         <div id="welcome">
           <div id="welcomeText">
             <h3 id="welcomeText1">Welcome.</h3>
-            <h3 id="welcomeText2">We are here to support you!</h3>
+            <h3 id="welcomeText1">What is your legal problem about?</h3>
           </div>
-          <img id="wavingMan" src="assets/man_temp.png" alt="man waving">
         </div>
 
-        <div id="information">
-          <h4 id="welcomeText3">
-            The following survey will provide us with accurate information to direct
-            you to the agency that will be able to best support you in this process.
-            The survey should take approximately 5 minutes.
-          </h4>
-          <p>
-            Please note that the information provided only serves as a guide and is
-            not legal advice!
-          </p>
-          <p>
-            Your information is not stored and this survey is completely private.
-          </p>
+        <div id="problemsGrid">
+            <div class= "problem"><h3>Child Support</h3></div>
+            <div class= "problem"><h3>Parentage</h3></div>
+            <div class= "problem"><h3>Parentage</h3></div>
+            <div class= "problem"><h3>Parentage</h3></div>
+            <div class= "problem"><h3>Parentage</h3></div>
+            <div class= "problem"><h3>Parentage</h3></div>
         </div>
 
-        <div id="begin">
+    
+
+        <!-- <div id="begin">
           <form action="survey.html">
             <input id="beginButton" type="submit" value="Begin" />
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
