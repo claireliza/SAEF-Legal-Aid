@@ -32,7 +32,9 @@ h2{
 }
 
 #question_area{
-    margin-top: 150px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
     padding: 25px;
     padding-top: 30px;
     display:flex;
@@ -122,7 +124,9 @@ h2{
 
 }
 
-.resourceDescription{
+/* collapsible styling source: https://www.w3schools.com/howto/howto_js_collapsible.asp */
+
+.resourceDescription, .itemsToBring, .collapsible{
     border-radius: 14px;
     border-color: black;
     border-style: solid;
@@ -137,6 +141,26 @@ h2{
     padding: 20px;
 }
 
+.collapsible{
+    display:block;
+    background-color: black;
+    color:white;
+    margin-top: 0px;
+    text-align: left;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.itemsToBring{
+    margin-top: 0px;
+    display:none;
+}
+
+.active, .collapsible:hover {
+    background-color:white;
+    color:black;
+}
+
 .resourceText{
     text-align: left;
     margin-left: 50px;
@@ -144,9 +168,17 @@ h2{
     flex-shrink: 2;
 }
 
-/* .contact-info{
-    margin: 20px;
-} */
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 22px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
 
 .logo{
     margin-left: 10px;
@@ -199,7 +231,7 @@ h2{
     color:white;
 
     text-align: left;
-    overflow: scroll;
+    /* overflow: scroll; */
     width: 80%;
     left: 7.5%;
 
@@ -210,7 +242,7 @@ h2{
     /* position: absolute; */
     /* top: 12%; */
     /* margin:auto; */
-    max-height: 250px;
+    /* max-height: 250px; */
     background: #333333;
     color:white;
     margin-left:10%;
@@ -277,4 +309,38 @@ h2{
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
+}
+
+
+#footer{
+    position:fixed;
+    display:flex;
+    bottom:20px;
+    right:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#explanationModal{
+    display: none;
+    background-color: #c4c4c5;
+    border-radius: 14px;
+    font-size: 23px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top:-10px;
+    padding-bottom: -10px;
+}
+
+.visible{
+    display: block;
+}
+
+#bottomIcon{
+    /* position:fixed;
+    bottom: 20px;
+    right: 20px; */
+    width: 60px;
+    height: 60px;
+    opacity: 0.5;
 }

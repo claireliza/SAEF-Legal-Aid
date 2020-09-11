@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Types of Child Support</title>
+    <!-- Explains the survey. -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="start_style.css" />
+    <link rel="stylesheet" href="navbar_style.css"/>
+
+  </head>
+
+  <style>
+    #largeContainer{
+        display: flex;
+        padding: 50px;
+        width: 100%;
+    }
+
+    #title{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .topText{
+        width: 1000px;
+        margin: auto;
+        text-align: left;
+        padding: 30px;
+        font-size: 24px;
+
+    }
+
+    #surveyLink{
+        background-color: black;
+        color:white;
+        margin:auto;
+        border-radius: 14px;
+        height: 100px;
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+        padding-bottom: 0px;
+    }
+
+    #buttonBox{
+        display:flex;
+        width: 700px;
+        margin:auto;
+    }
+
+    #form{
+        width: 800px;
+        margin-bottom: 40px;
+    }
+
+    .textBox{
+        width: 200px;
+        margin-top: 200px;
+    }
+
+  </style>
+  <body class="home">
+
+    <div id="topNavBar">
+
+      <div id ="logo" class="page" onclick="location.href='home.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
+      <div id ="pages">
+        <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
+      </div>
+    </div>
+
+    <div id="largeContainer">
+      <div id="backButton">
+        <a href="childsupport.html"><img id="backIcon" src="assets/backarrow.png"></a>
+      </div>
+
+      <div>
+        
+        <div>
+            <h3 id="title">Two Types of Child Support Orders</h3>
+            <p class="topText"> In Illinois, like most states, there are two types of child support orders that can be issued. Although they both do the same thing, knowing which order you have can affect who can help you with your case. </p>
+            <p class="topText"> If a child support order is created and entered by a judge in court, it is a judicial child support order.            </p>
+            <p class="topText">If a child support order is created and entered by the Illinois Department of Healthcare and Family Services (HFS), it is an administrative child support order.</p>
+            <p class ="topText" style="font-weight: bold;" topText">Here's how to tell the difference based on your child support order:</p>
+        </div>
+
+        <div style="display:flex;">
+            <img id="form" src="assets/page1-support-order.jpg">
+            <div>
+                <p class="textBox" style="color: red; ">If an IV-D case number is written on the order(e.g. "221HXXXXXX"), it is an administrative child support order!</p>
+                <p class="textBox">If nothing is written, it is a judicial child support order and should have a docket number (e.g. "2020DXXXXXX")</p>
+                <p class="textBox">Note: you can have an administrative child support order and still have your case heard by a judge in court. Learn more</p>
+            </div>
+        </div>
+
+    
+
+        <div id="buttonBox">
+            <div id="surveyLink" onclick="location.href='childsupport.html'" > 
+                <p class="infoText" style="text-align: center;">Go back</p>
+            </div>
+
+            <div id="surveyLink" onclick="location.href='survey.html'" > 
+                <p class="infoText" style="text-align: center;">Take me to the child support referral questionnaire</p>
+            </div>
+        </div>
+
+       </div>
+    </div>
+  </body>
+</html>

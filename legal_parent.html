@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Legal Parent</title>
+    <!-- Explains the survey. -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="start_style.css" />
+    <link rel="stylesheet" href="navbar_style.css"/>
+
+  </head>
+
+  <style>
+    #largeContainer{
+        display: flex;
+        padding: 50px;
+    }
+
+    #title{
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #topText{
+        width: 800px;
+        margin: auto;
+    }
+
+    .infoBox{
+        /* background-color:#F5F5F7; */
+        display: flex;
+        flex-direction: column;
+        border-radius: 14px;
+        padding: 20px;
+        padding-top: 0px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+
+    }
+
+    .infoTitle{
+        text-align: left;
+        font-size: 30px;
+    }
+
+    .infoText{
+        text-align: left;
+        font-size: 26px;
+    }
+
+    .number{
+        background-color: black;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        color:white;
+        font-size: 35px;
+        text-align: center;
+        margin: 15px;
+    }
+
+    #surveyLink{
+        background-color: black;
+        color:white;
+        margin:auto;
+        border-radius: 14px;
+        height: 100px;
+        width: 300px;
+        text-align: center;
+        padding: 20px;
+        padding-bottom: 0px;
+    }
+
+    #buttonBox{
+        display:flex;
+        width: 700px;
+        margin:auto;
+    }
+
+  </style>
+  <body class="home">
+
+    <div id="topNavBar">
+
+      <div id ="logo" class="page" onclick="location.href='home.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
+      <div id ="pages">
+        <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
+      </div>
+    </div>
+
+    <div id="largeContainer">
+      <div id="backButton">
+        <a href="childsupport.html"><img id="backIcon" src="assets/backarrow.png"></a>
+      </div>
+
+      <div>
+        
+        <div>
+            <h3 id="title">The Legal Parent of a Child</h3>
+            <p id="topText"> Just because someone's name is on a child's birth certificate, it doesn't mean they are the legal parent of that child. Before someone can be legally made to pay or receive child support, they have to first be legally declared that child's parent. Unless you are the child's biological mother, or had a surrogacy agreement, there are three main ways to become a legal parent:</p>
+        </div>
+        <div class="infoBox"> 
+            <div style="display:flex;">
+                <div class = "number">1</div>
+                <h3 class="infoTitle">Through marriage or civil union</h3>
+            </div>
+            <p class="infoText">If you were married to or in a civil union with the child's biological mother at the time the child was born, you are typically presumed to be the legal parent of that child. You may also become the legal parent if you got a divorce within 300 days after the child was born.</p>
+        </div>
+
+        <div class="infoBox"> 
+            <div style="display:flex; justify-content: flex-end;">
+                <h3 class="infoTitle">Through a Voluntary Acknowledgement of Paternity (VAP)</h3>
+                <div class = "number">2</div>
+            </div>
+            <p class="infoText" style="text-align: right;">If the child doesn't already have two legal parents, you can sign a Voluntary Acknowledgement of Paternity to become the legal parent of a child. This is typically presented to the child's father at the hospital if he is not married to the mother. Want to see what it looks like?</p>
+        </div>
+
+        <div class="infoBox"> 
+            <div style="display:flex;">
+                <div class = "number">3</div>
+                <h3 class="infoTitle">Through a Legal Judgement</h3>
+            </div>
+            <p class="infoText">You can be ordered to be the legal parent of a child by a judge in court, or by the Department of Healthcare and Family Services (HFS). This is called an adjudication of parentage. This process often involved DNA-testing.</p>
+        </div>
+        
+
+        <div id="buttonBox">
+            <div id="surveyLink" onclick="location.href='childsupport.html'" > 
+                <p class="infoText" style="text-align: center;">Go back</p>
+            </div>
+
+            <div id="surveyLink" onclick="location.href='survey.html'" > 
+                <p class="infoText" style="text-align: center;">Take me to the child support referral questionnaire</p>
+            </div>
+        </div>
+
+       </div>
+    </div>
+  </body>
+</html>
