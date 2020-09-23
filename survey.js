@@ -1,6 +1,8 @@
   
 /* Contains all survey questions and definitions. */
-
+var people = 0; //number of people in household
+var incomeOne = 0; //0 if less than $19,510, 1 if more
+var incomeTwo = 0; //0 if less than $31,900, 1 if more
 // SOURCE: https://stackoverflow.com/questions/12036966/generic-tree-implementation-in-javascript
 function Option() {
     /*
@@ -540,6 +542,7 @@ function createModal(id, d){
 }
 
 //NEATEN THIS UP!!!
+//include contact info icons here
 function showResources(resources) {
     //console.log(resources[0]);
 
@@ -706,7 +709,6 @@ function setup(option) {
     // Change question
     const q = document.getElementById("question");
     q.innerHTML = option.question;
-
     
     // Set up links for defintions
     setupLinks(q.parentElement);
@@ -725,4 +727,52 @@ function setup(option) {
     }
 }
 
-setup(makeSurvey(surveyArray));
+function preSurveySetup() {
+
+    document.getElementById("resources").style.display="none";
+    document.getElementById("question_area").style.display="none";
+
+    const button = document.getElementById("next_button");
+    button.addEventListener("click", function(){
+        document.getElementById("beginning_questions").style.display="none";
+        setup(makeSurvey(surveyArray));
+    });
+    
+    document.getElementById("dropdown").addEventListener("change", function(){
+        const qs = document.getElementsByClassName("income_level_question");
+        for(const q of qs){
+            var dropdown = document.getElementById("dropdown");
+            var choice = dropdown.options[dropdown.selectedIndex].text;
+            if(choice=="1"){
+                q.innerText="Is your family income less than $12,760?"
+            }
+            else if(choice=="2"){
+                q.innerText="Is your family income less than $17,240?"
+            }
+            else if(choice=="3"){
+                q.innerText="Is your family income less than $21,720?"
+            }
+            else if(choice=="4"){
+                q.innerText="Is your family income less than $26,200?"
+            }
+            else if(choice=="5"){
+                q.innerText="Is your family income less than $30,680?"
+            }
+            else if(choice=="6"){
+                q.innerText="Is your family income less than $35,160?"
+            }
+            else if(choice=="7"){
+                q.innerText="Is your family income less than $39,640?"
+            }
+            else if(choice=="8+"){
+                q.innerText="Is your family income less than $44,120?"
+            }
+        }
+    });
+
+    // *******
+}
+
+preSurveySetup();
+
+//setup(makeSurvey(surveyArray));
