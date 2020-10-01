@@ -3,6 +3,7 @@
 var people = 0; //number of people in household
 var incomeOne = 0; //0 if less than $19,510, 1 if more
 var incomeTwo = 0; //0 if less than $31,900, 1 if more
+
 // SOURCE: https://stackoverflow.com/questions/12036966/generic-tree-implementation-in-javascript
 function Option() {
     /*
@@ -153,38 +154,38 @@ const surveyArray = [
                             },
                         ],
                     },
-                    // {
-                    //     text: "Modify",
-                    //     question: "",
-                    //     answers: [],
-                    // },
-                    // {
-                    //     text: "Enforce",
-                    //     question: "",
-                    //     answers: [],
-                    // },
-                    // {
-                    //     text: "Terminate",
-                    //     question: "",
-                    //     answers: [],
-                    // },
+                    {
+                        text: "Modify",
+                        question: "",
+                        answers: [],
+                    },
+                    {
+                        text: "Enforce",
+                        question: "",
+                        answers: [],
+                    },
+                    {
+                        text: "Terminate",
+                        question: "",
+                        answers: [],
+                    },
                 ],
             },
-            // {
-            //     text: "Divorce",
-            //     question: "What action would you like to take for divorce?",
-            //     answers: [],
-            // },
-            // {
-            //     text: "Annulment",
-            //     question: "What action would you like to take for annulment?",
-            //     answers: [],
-            // },
-            // {
-            //     text: "Legal Separation",
-            //     question: "What action would you like to take for legal separation?",
-            //     answers: [],
-            // },
+            {
+                text: "Divorce",
+                question: "What action would you like to take for divorce?",
+                answers: [],
+            },
+            {
+                text: "Annulment",
+                question: "What action would you like to take for annulment?",
+                answers: [],
+            },
+            {
+                text: "Legal Separation",
+                question: "What action would you like to take for legal separation?",
+                answers: [],
+            },
         ]
     }
 ];
@@ -389,7 +390,7 @@ function replaceButtons(option) {
         buttonArea.appendChild(button);
 
         //allows for longer buttons
-        button.style.width = (  (Math.max((button.clientWidth + 10), 200))  + "px"); 
+        // button.style.width = (  (Math.max((button.clientWidth + 10), 200))  + "px"); 
     }
 }
 
@@ -595,6 +596,7 @@ function showResources(resources) {
         //resource description
         let el3 = document.createElement("div");
         let p3 = document.createElement("p");
+        
         p3.classList.add("resourceText");
         p3.innerHTML=resourceTexts[r2];
         el3.appendChild(p3);
@@ -617,13 +619,6 @@ function showResources(resources) {
         document.getElementById("resources").appendChild(button);
         document.getElementById("resources").appendChild(content);
     }
-
-
-    // document.getElementById("resources").appendChild(el);
-    // document.getElementById("resources").appendChild(button);
-    // document.getElementById("resources").appendChild(content);
-    
-
     //help us improve button
     let input = document.createElement("input");
     input.type = "submit";
@@ -730,6 +725,9 @@ function setup(option) {
 function preSurveySetup() {
 
     document.getElementById("resources").style.display="none";
+    document.getElementById("yes_no").style.display="none";
+    document.getElementById("right_questions").style.display="none";
+
     document.getElementById("question_area").style.display="none";
 
     const button = document.getElementById("next_button");
@@ -739,36 +737,65 @@ function preSurveySetup() {
     });
     
     document.getElementById("dropdown").addEventListener("change", function(){
+        
+        document.getElementById("yes_no").style.display="block";
+
         const qs = document.getElementsByClassName("income_level_question");
-        for(const q of qs){
+        // for(const q of qs){
             var dropdown = document.getElementById("dropdown");
             var choice = dropdown.options[dropdown.selectedIndex].text;
             if(choice=="1"){
-                q.innerText="Is your family income less than $12,760?"
+                people=1;
+                qs[0].innerText="Is your family income more than $15,950?"
+                qs[1].innerText="Is your family income more than $31,900?"
             }
             else if(choice=="2"){
-                q.innerText="Is your family income less than $17,240?"
+                people=2;
+                qs[0].innerText="Is your family income more than $21,550?"
+                qs[1].innerText="Is your family income more than $43,100?"
             }
             else if(choice=="3"){
-                q.innerText="Is your family income less than $21,720?"
+                people=3;
+                qs[0].innerText="Is your family income more than $27,150?"
+                qs[1].innerText="Is your family income more than $54,300?"
             }
             else if(choice=="4"){
-                q.innerText="Is your family income less than $26,200?"
+                people=4;
+                qs[0].innerText="Is your family income more than $32,750?"
+                qs[1].innerText="Is your family income more than $65,500?"
             }
             else if(choice=="5"){
-                q.innerText="Is your family income less than $30,680?"
+                people=5;
+                qs[0].innerText="Is your family income more than $38,350?"
+                qs[1].innerText="Is your family income more than $76,700?"
             }
             else if(choice=="6"){
-                q.innerText="Is your family income less than $35,160?"
-            }
+                people=6;
+                qs[0].innerText="Is your family income more than $43,950?"
+                qs[1].innerText="Is your family income more than $87,900?"
+             }
             else if(choice=="7"){
-                q.innerText="Is your family income less than $39,640?"
+                people=7;
+                qs[0].innerText="Is your family income more than $49,550?"
+                qs[1].innerText="Is your family income more than $99,100?"
             }
             else if(choice=="8+"){
-                q.innerText="Is your family income less than $44,120?"
+                people=8;
+                qs[0].innerText="Is your family income more than $55,150?"
+                qs[1].innerText="Is your family income more than $110,300?"
             }
-        }
+        // }
     });
+
+
+    const bs = document.getElementsByClassName("yes_no_button");
+    for(const b of bs){
+        b.addEventListener("click", function(){
+            b.classList.toggle("clicked");
+            document.getElementById("right_questions").style.display="block";
+        });
+    }
+
 
     // *******
 }

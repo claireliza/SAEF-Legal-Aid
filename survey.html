@@ -54,10 +54,13 @@
 
         <!--This is hidden except for at the very beginning of the survey-->
         <div id="beginning_questions" style="flex-direction:row;">
+          <p class="beginning_text">Before you get started, there's a few questions we'd like to ask to help us give you better resources:</p>
+          <div style="display:flex;">
           <div id="left_questions"> 
             <div id="household_members" style="margin:40px; display:flex;">
-              <p>How many people live in your household?</p>
-              <select id="dropdown" style="height:20px; margin:20px;">
+              <p class="beginning_text">How many people live in your household?</p>
+              <select id="dropdown" style="height:30px; margin:30px;">
+                <option></option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -68,24 +71,24 @@
                 <option>8+</option>
               </select>
             </div>
-            <div id="yes_no">
+            <div id="yes_no" style="margin:auto;">
               <div class="yes_no_question" style="display:flex;">
-                <p class="income_level_question">Is your family income less than $12,760?</p>
-                <div class="yes_no_button" style="margin:15px;">
-                  <button>YES</button>
-                  <button>NO</button>
+                <p class="beginning_text" class="income_level_question">Is your family income less than $12,760?</p>
+                <div class="yes_no_button" style="margin:30px;">
+                  <button class="yes_no_button">YES</button>
+                  <button class="yes_no_button">NO</button>
                 </div>
               </div>
               <div class="yes_no_question" style="display:flex;">
-                <p class="income_level_question">Is your family income less than $12,760?</p>
-                <div class="yes_no_button" style="margin:15px;">
-                  <button>YES</button>
-                  <button>NO</button>
+                <p class="beginning_text" class="income_level_question">Is your family income less than $12,760?</p>
+                <div class="yes_no_button" style="margin:30px;">
+                  <button class="yes_no_button">YES</button>
+                  <button class="yes_no_button">NO</button>
                 </div>
               </div>
             </div>
           </div>
-          <div id="right_questions" style="width: 400px; text-align:left;">
+          <div id="right_questions" style="width: 400px; text-align:left; margin:auto;">
             <h3>Please check all that apply:</h3>
             <div id="checkboxes">
               <div class="check_line">
@@ -113,6 +116,7 @@
             </div>
             <div id="next_button">NEXT</div>
           </div>
+        </div>
       </div>
 
         <!-- This is hidden for most of the survey because its CSS 'display' property is set to "none" in survey.js and reset to 'initial' at the end of the survey -->

@@ -4,6 +4,8 @@ body{
     text-align: center;
 }
 
+
+
 #mainContainer{
     display: flex;
     margin: 1%;
@@ -36,7 +38,7 @@ h2{
     margin-bottom: 100px;
     padding: 25px;
     padding-top: 30px;
-    display:flex;
+    /* display:flex; */
     flex-direction: column;
     background-color: #F5F5F7;
     width: 100%;
@@ -364,4 +366,21 @@ h2{
     justify-content: center;
     align-items: center;
     font-size: 35px;
+}
+
+
+
+.yes_no_button{
+    height: 30px;
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.clicked{
+    color:white;
+}
+.beginning_text{
+    font-size:28px;
 }
