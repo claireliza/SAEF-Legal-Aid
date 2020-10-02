@@ -4,8 +4,6 @@ body{
     text-align: center;
 }
 
-
-
 #mainContainer{
     display: flex;
     margin: 1%;
@@ -383,4 +381,11 @@ h2{
 }
 .beginning_text{
     font-size:28px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #beginning_questions{
+        display:block;
+    }
 }
