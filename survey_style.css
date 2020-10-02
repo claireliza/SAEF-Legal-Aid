@@ -379,7 +379,7 @@ h2{
 .clicked{
     color:white;
 }
-.beginning_text{
+.beginning_text, .income_level_question{
     font-size:28px;
 }
 
