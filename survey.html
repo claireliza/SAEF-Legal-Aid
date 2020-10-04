@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="survey_style.css" />
     <link rel="stylesheet" href="navbar_style.css" />
   </head>
-  <style>
+  <!-- <style>
     #flex{
       flex-direction: space-between;
     }
-  </style>
+  </style> -->
   
   <body class="home">
 
@@ -24,9 +24,9 @@
 
      <div id="topNavBar">
 
-      <div id ="logo" class="page" onclick="location.href='start_survey.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
+      <div id ="logo" class="page" onclick="location.href='home.html'"><h3 class="navText">SAEF LEGAL AID</h3></div>
       <div id ="pages">
-        <div class="page" onclick="location.href='start_survey.html'"><h3 class="navText">Get Help</h3></div>
+        <div class="page" onclick="location.href='survey.html'"><h3 class="navText">Get Help</h3></div>
       </div>
     </div>
 
@@ -54,10 +54,9 @@
 
         <!--This is hidden except for at the very beginning of the survey-->
         <div id="beginning_questions" style="flex-direction:row;">
-          <p class="beginning_text">Before you get started, there's a few questions that will help us give you better resources:</p>
-          <div style="display:flex;">
-          <div id="left_questions"> 
-            <div id="household_members" style="margin:40px; display:flex;">
+          <p class="beginning_text">Here are a few additional questions that will help us give you better resources:</p>
+          <div id="left_questions" style="width:100%; margin-left: 100px;"> 
+            <div id="household_members" style="display:flex; margin:auto;">
               <p class="beginning_text">How many people live in your household?</p>
               <select id="dropdown" style="height:30px; margin:30px;">
                 <option></option>
@@ -73,17 +72,18 @@
             </div>
             <div id="yes_no" style="margin:auto;">
               <div class="yes_no_question" style="display:flex;">
-                <p  class="income_level_question">Is your family income less than $12,760?</p>
+                <p id="income1" class="income_level_question"></p>
                 <div class="yes_no_button" style="margin:30px;">
-                  <button class="yes_no_button">YES</button>
-                  <button class="yes_no_button">NO</button>
+                  <!-- <label for="yes_no_radio">Do you agree to the terms?</label> -->
+                  <input type="radio" name="yes_no" id="income1_yes">Yes</input>
+                  <input type="radio" name="yes_no" id="income1_no">No</input>
                 </div>
               </div>
               <div class="yes_no_question" style="display:flex;">
-                <p  class="income_level_question">Is your family income less than $12,760?</p>
-                <div class="yes_no_button" style="margin:30px;">
-                  <button class="yes_no_button">YES</button>
-                  <button class="yes_no_button">NO</button>
+                <p id="income2" class="income_level_question"></p>
+                <div id="income2buttons" class="yes_no_button" style="margin:30px;">
+                  <input type="radio" name="yes_no_2" id="income2_yes">Yes</input>
+                  <input type="radio" name="yes_no_2" id="income2_no">No</input>
                 </div>
               </div>
             </div>
@@ -114,9 +114,9 @@
                 <label>*I agree to the Terms of Services and understand that this questionnaire is not intended to be legal advice and an attorney has not taken my case as a result of filing out this questionnaire. I also agree to the Privacy Policy and understand that my information is kept confidential and is not shared with any external parties</label>
               </div>
             </div>
-            <div id="next_button">NEXT</div>
           </div>
-        </div>
+          <div class="next_button" id="left_done">NEXT</div>
+          <div class="next_button" id="right_done">NEXT</div>
       </div>
 
         <!-- This is hidden for most of the survey because its CSS 'display' property is set to "none" in survey.js and reset to 'initial' at the end of the survey -->

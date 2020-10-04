@@ -7,7 +7,6 @@ body{
 #mainContainer{
     display: flex;
     margin: 1%;
-    /* width: 100%; */
     height:100%;
     justify-content: center;
 }
@@ -17,7 +16,6 @@ body{
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-    /* width:100%; */
     height:100vh;
 }
 
@@ -63,6 +61,20 @@ h2{
     margin: 10px;
 }
 
+.iconButton{
+    border-radius: 8px;
+    background-color: grey;
+    color:white;
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    height: 80px;
+    width: 200px;
+    margin: 10px;
+}
+
 #back_button{
     display:flex;
     background-color:white;
@@ -85,8 +97,6 @@ h2{
     margin-bottom:10px;
     display: flex;
     flex-direction: column;
-    /* width: 70%; */
-    /* align-items: center; */
 }
 
 #icons{
@@ -97,17 +107,14 @@ h2{
 
 #buttonsAndIcons{
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
 }
 
 
 /* RESOURCES DISPLAY STYLING */
 
 #resources{
-    /* background-color:white; */
-    /* border-radius: 14px; */
     padding: 15px;
-    /* width: 700px; */
     padding: 50px;
     margin-left: 75px;
     margin-right: 75px;
@@ -213,9 +220,6 @@ h2{
     position: absolute;
     flex-direction: column;
     display: flex;
-    /* justify-content: flex-start; */
-    /* width:100%; */
-    /* align-items: center; */
 }
 
 #modalBox.on{
@@ -262,16 +266,9 @@ h2{
 }
 
 #defModal2{
-    /* position: absolute; */
-    /* background: rgba(255, 255, 255, 0.712); */
     background: #f2f2f2;
     color:black;
     margin-left:10%;
-    /* top: 50%; */
-    /* width: 875px; */
-    /* font-size: 24px; */
-    /* max-height: 250px; */
-   
 }
 
 .modal.on {
@@ -279,8 +276,6 @@ h2{
 }
 
 .icon{
-    /* position: absolute;
-    top: -10px;*/
     width: 20px; 
     background-image:url('assets/information\ 10.png');
 }
@@ -351,7 +346,7 @@ h2{
     opacity: 0.5;
 }
 
-#next_button{
+.next_button{
     background-color: black; 
     color:white; 
     width:125px; 
@@ -376,13 +371,12 @@ h2{
     font-size: 22px;
 }
 
-.clicked{
+/* .clicked{
     color:white;
-}
+} */
 .beginning_text, .income_level_question{
     font-size:28px;
 }
-
 
 @media only screen and (max-width: 768px) {
     #beginning_questions{

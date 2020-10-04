@@ -55,7 +55,7 @@ const surveyArray = [
     Objects at the very end of the question chain have the 'resources' property defined, listing the names of legal aid organizations exactly as they are referenced in the <div> elements that contain information about those organizations.
     */
     {
-        text: "Begin Survey",
+        text: "Begin Survey", //don't change this
         question: "What do you need help with?",
         explanation: "Click me for info while you fill out this questionnaire",
         answers: [
@@ -279,11 +279,11 @@ function makeSurvey(array) {
     return o;
 }
 
-function setupBackButton(option) {
-    /*
+
+ /*
     Takes whatever branch of the Option tree you are on and creates a button that will take you to the branch that came before it, taking you one step back in the survey. If you go back to the beginning, this button will take you to start_survey.html.
     */
-
+function setupBackButton(option) {
     const backButtonArea = document.getElementById("back");
     const backButton = document.getElementById("back_button");
     const newBackButton = document.createElement("input");
@@ -295,7 +295,7 @@ function setupBackButton(option) {
 
     if (option.getLastOption() === null) {
         newBackButton.addEventListener("click", function () {
-            window.location.assign("start_survey.html");
+            window.location.assign("home.html");
         });
     }
     else {
@@ -352,11 +352,11 @@ function setupProgressBar(option) {
         : `At most ${questionsLeft} questions`} left.`;
 }
 
-function replaceButtons(option) {
-    /* 
+/* 
     Replaces an old set of answer buttons with the ones for a different question.
      */
-
+function replaceButtons(option) {
+    
     // Remove old buttons
 
     const buttonArea = document.getElementById("buttons");
@@ -368,7 +368,6 @@ function replaceButtons(option) {
     }
 
     // Create new buttons
-
     for (let i = 0; i < option.getAnswers().length; i++) {
         const answer = option.getAnswers()[i];
 
@@ -376,8 +375,10 @@ function replaceButtons(option) {
         button.setAttribute("type", "submit");
         button.setAttribute("value", answer.text);
 
-        //me
         button.setAttribute("class", "surveyButton");
+        if(option.text=="Begin Survey"){
+            button.style.width="900px";
+        }
         button.addEventListener("click", function () {
             if(answer.redirect !== undefined){ //if an alternate referall quiz exists, create popup windows
                 createModal("defModal", definitions[answer.redirect]);
@@ -388,79 +389,11 @@ function replaceButtons(option) {
 
         // Insert new button
         buttonArea.appendChild(button);
-
-        //allows for longer buttons
-        // button.style.width = (  (Math.max((button.clientWidth + 10), 200))  + "px"); 
     }
 }
-
-/*
-bug - when you click the nested link more than once it breaks
-CREATE A SECOND FUNCTION TO DO THE HOVER LINKS
-*/
-function setupLinks(div) {
-    /* 
-    Finds all the <a href="#!"> tags that are descendants of a given <div> tag and makes it 
-    so that when you click on the link, it'll retrieve its definition from the dictionary of
-    terms and display that definition in a popup.
-     */
-    // SOURCE: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
-    
-    const links = div.querySelectorAll("a");
-
-    var isEmpty = document.getElementById("defModal").innerHTML === "";
-
-    for (const a of links) {
-        a.style.color = "black"; //sets link color to black
-
-        a.style.textDecoration = "#underline"; //sets link underline
-
-        //let content = a.innerHTML;
-
-        // a.classList.add("icon");
-        a.addEventListener("click", function () {
-            const d = definitions[a.innerText];
-
-            if (isEmpty){ //if function is being called on question area
-                createModal("defModal", d); //creates modal window
-                setupHover(document.getElementById("defModal"));
-            } 
-        });
-    };
-}
-
-function setupHover(div){
-    
-    const links = div.querySelectorAll("a");
-    for (const a of links) {
-        a.style.color = "white"; //sets link color to white
-        a.style.textDecoration = "#underline";
-
-        a.addEventListener("mouseover", function (){
-            const d = definitions[a.innerText];
-            createModal("defModal2", d);
-        });
-
-        a.addEventListener("mouseleave", function (){
-            //let body = document.querySelector("body");
-            //body.removeChild(document.getElementById("overlay1"));
-            document.getElementById("defModal2").classList.remove('on');
-            document.getElementById("defModal2").innerHTML ="";
-        });
-
-        a.addEventListener('click', function(){
-            var str1 = "glossary.html#";
-            var str2 = a.innerText;
-            window.open(str1.concat(str2), '_blank');
-        });
-    }
-}
-
-
 
 /* Creates modal window with a background overlay underneath and a close button in the corner that clears the whole modal
 source : https://www.thatsoftwaredude.com/content/9123/the-simplest-way-to-create-dynamic-modal-popups-in-javascript */
-
 //CLEAN THIS UP!
 function createModal(id, d){
 
@@ -492,7 +425,6 @@ function createModal(id, d){
         el.classList.remove('on');
         document.getElementById("modalBox").classList.remove('on');
         el.innerHTML = ""; //clears modal
-        //document.getElementById("defModal").style.left = "35%"; //sets modal back to center;
     });
 
     // Source: https://gomakethings.com/detecting-clicks-inside-an-element-with-vanilla-javascript/
@@ -542,16 +474,125 @@ function createModal(id, d){
 
 }
 
-//NEATEN THIS UP!!!
-//include contact info icons here
-function showResources(resources) {
-    //console.log(resources[0]);
 
-    //for(const r of resources){
+/*
+    Asks a series of demographic questions to make referrals more specific
+*/
+function extraQuestions(resources) {
+    console.log(resources);
+
+    document.getElementById("beginning_questions").style.display="block";
+    document.getElementById("resources").style.display="none";
+    document.getElementById("yes_no").style.display="none";
+    document.getElementById("right_questions").style.display="none";
+    document.getElementById("question_area").style.display="none";
+    document.getElementById("left_done").style.display="none";
+    document.getElementById("right_done").style.display="none";
+
+    document.getElementById("right_done").addEventListener("click", function(){
+        document.getElementById("beginning_questions").style.display="none";
+        //setup(makeSurvey(surveyArray));
+        showResources(resources);
+    });
+
+    document.getElementById("left_done").addEventListener("click", function(){
+        document.getElementById("left_questions").style.display="none";
+        document.getElementById("left_done").style.display="none";
+        document.getElementById("right_questions").style.display="block";
+        document.getElementById("right_done").style.display="block";
+
+    });
+
+    const income1 =document.getElementById("income1");
+    const income2 =document.getElementById("income2");
+
+    document.getElementById("dropdown").addEventListener("change", function(){
+        
+        document.getElementById("yes_no").style.display="block";
+
+        //show first income question
+        income1.style.display="flex";
+        //hide second income question
+        income2.style.display="none";
+        document.getElementById("income2buttons").style.display="none";
+
+        var dropdown = document.getElementById("dropdown");
+        var choice = dropdown.options[dropdown.selectedIndex].text;
+        if(choice=="1"){
+            people=1;
+            income1.innerText="Is your family income more than $15,950?"
+            income2.innerText="Is your family income more than $31,900?"
+        }
+        else if(choice=="2"){
+            people=2;
+            income1.innerText="Is your family income more than $21,550?"
+            income2.innerText="Is your family income more than $43,100?"
+        }
+        else if(choice=="3"){
+            people=3;
+            income1.innerText="Is your family income more than $27,150?"
+            income2.innerText="Is your family income more than $54,300?"
+        }
+        else if(choice=="4"){
+            people=4;
+            income1.innerText="Is your family income more than $32,750?"
+            income2.innerText="Is your family income more than $65,500?"
+        }
+        else if(choice=="5"){
+            people=5;
+            income1.innerText="Is your family income more than $38,350?"
+            income2.innerText="Is your family income more than $76,700?"
+        }
+        else if(choice=="6"){
+            people=6;
+            income1.innerText="Is your family income more than $43,950?"
+            income2.innerText="Is your family income more than $87,900?"
+        }
+        else if(choice=="7"){
+            people=7;
+            income1.innerText="Is your family income more than $49,550?"
+            income2.innerText="Is your family income more than $99,100?"
+        }
+        else if(choice=="8+"){
+            people=8;
+            income1.innerText="Is your family income more than $55,150?"
+            income2.innerText="Is your family income more than $110,300?"
+        }
+    });
+
+    const income1_yes = document.getElementById("income1_yes");
+    const income1_no = document.getElementById("income1_no");
+    const income2_no = document.getElementById("income2_yes");
+    const income2_yes = document.getElementById("income2_no");
+
+    income1_yes.onclick= function(){
+        income2.style.display="flex";
+        document.getElementById("income2buttons").style.display="flex";
+        document.getElementById("right_questions").style.display="none";
+        incomeOne=1;
+    };
+    income1_no.onclick= function(){
+        income2.style.display="none";
+        document.getElementById("income2buttons").style.display="none";
+        incomeOne=0;
+        document.getElementById("left_done").style.display="block";
+    };
+    income2_yes.onclick= function(){
+        document.getElementById("left_done").style.display="block";
+    };
+    income2_no.onclick= function(){
+        document.getElementById("left_done").style.display="block";
+    };
+}
+
+/* Makes resources information appear on the screen and the survey content disappear
+    from the page
+*/
+function showResources(resources) {
+    document.getElementById("resources").style.display="block";
 
     const r = resources[0];
-
-    //resource info
+    //primary resource info
     let el = document.createElement("div");
     el.classList.add("resourceDescription");
     //contact info
@@ -575,9 +616,8 @@ function showResources(resources) {
 
     document.getElementById("resources").appendChild(el);
 
-    //additionalresources
+    //additional resources - this eventually needs to be a for loop
     //collapsible button
-    console.log(resources[1]);
     if(resources[1]!== undefined){
         const r2 = resources[1];
 
@@ -587,7 +627,6 @@ function showResources(resources) {
         //content of collapsible
         let content = document.createElement("div");
         content.classList.add("additionalResources");
-        //contact
         //contact info
         let contact2 = document.createElement("div");
         contact2.classList.add("contactInfo");
@@ -619,6 +658,7 @@ function showResources(resources) {
         document.getElementById("resources").appendChild(button);
         document.getElementById("resources").appendChild(content);
     }
+
     //help us improve button
     let input = document.createElement("input");
     input.type = "submit";
@@ -631,18 +671,19 @@ function showResources(resources) {
     document.getElementById("resources").appendChild(input);
 }
 
-function toggleResources(option) {
-    /* 
+/* 
     Decides whether it's time to end the survey and display information about legal aid resources.
     Returns 1 if it's the end, returns 0 if not
      */
+function toggleResources(option) {
     const resources = document.getElementById("resources");
     if (option.getResources() !== undefined) {
         // This branch of the Option tree has the 'resources' property, which means that it's the end of the survey and there are resources to recommend.
         resources.style.display = "initial";
         resources.firstElementChild.style.display = "initial";
-        setupLinks(resources);
-        showResources(option.getResources());
+
+        extraQuestions(option.getResources());
+        //showResources(option.getResources());
         return(1);
     }
     else {
@@ -654,11 +695,13 @@ function toggleResources(option) {
     }
 }
 
+/*
+    Changes the content of the icon explanation popup button
+*/
 function setupExplanation(option){
-    // Change icon explanation popup
     const explanationArea = document.getElementById("footer");
     const explanation = document.getElementById("explanationModal");
-    if(option.question!= "What do you need help with?") {
+    if(option.text!= "Begin Survey") {
         explanation.style.display="none";
     } else{
         explanation.style.display="block";
@@ -671,7 +714,6 @@ function setupExplanation(option){
     newExplIcon.setAttribute("id", "bottomIcon");
     
     newExplIcon.addEventListener("click", function toggleExplanation(){
-        console.log("click");
         if(explanation.style.display==="none"){
 
             if(option.explanation!==undefined){
@@ -687,10 +729,47 @@ function setupExplanation(option){
     explanationArea.replaceChild(newExplIcon, explIcon);   
 }
 
-function setup(option) {
-    /* 
+/*
+Sets up pages with more information about each type of legal inquiry, 
+only relevant for the first survey question
+*/
+function setupInfoPages(option){
+    const iconArea = document.getElementById("icons");
+
+    let b = iconArea.firstElementChild;
+    while (b) {
+        iconArea.removeChild(b);
+        b = iconArea.firstChild;
+    }
+
+    for (let i = 0; i < option.getAnswers().length; i++) {
+        const answer = option.getAnswers()[i];
+
+        const button = document.createElement("input");
+        button.setAttribute("type", "submit");
+        button.setAttribute("value", "What does this mean?");
+
+        button.setAttribute("class", "iconButton");
+        button.addEventListener("click", function () {
+            if(answer.text=="Child Support"){
+                window.location.replace("childsupport.html")          
+            }
+        });
+
+        // Insert new button
+        iconArea.appendChild(button);
+    }
+
+    iconArea.style.display="flex";
+
+}
+
+/* 
     Sets up all visble elements on the page.
-     */
+*/
+function setup(option) {
+    document.getElementById("resources").style.display="none";
+    document.getElementById("beginning_questions").style.display="none";
 
     // Set up back button
     setupBackButton(option);
@@ -704,14 +783,16 @@ function setup(option) {
     // Change question
     const q = document.getElementById("question");
     q.innerHTML = option.question;
-    
-    // Set up links for defintions
-    setupLinks(q.parentElement);
+
+    // Set up initial info pages if and only if it's the first question
+    if(option.text=="Begin Survey"){
+        setupInfoPages(option);
+    } else{
+        document.getElementById("icons").style.display ="none";
+    }
 
     // Remove old buttons and create new buttons
     replaceButtons(option);
-    // document.getElementById("footer").removeEventListener("click", toggleExplanation);
-
 
     // Show resources if the survey is over, hides question area if it is
     const end = toggleResources(option);
@@ -722,84 +803,5 @@ function setup(option) {
     }
 }
 
-function preSurveySetup() {
-
-    document.getElementById("resources").style.display="none";
-    document.getElementById("yes_no").style.display="none";
-    document.getElementById("right_questions").style.display="none";
-
-    document.getElementById("question_area").style.display="none";
-
-    const button = document.getElementById("next_button");
-    button.addEventListener("click", function(){
-        document.getElementById("beginning_questions").style.display="none";
-        setup(makeSurvey(surveyArray));
-    });
-    
-    document.getElementById("dropdown").addEventListener("change", function(){
-        
-        document.getElementById("yes_no").style.display="block";
-
-        const qs = document.getElementsByClassName("income_level_question");
-        // for(const q of qs){
-            var dropdown = document.getElementById("dropdown");
-            var choice = dropdown.options[dropdown.selectedIndex].text;
-            if(choice=="1"){
-                people=1;
-                qs[0].innerText="Is your family income more than $15,950?"
-                qs[1].innerText="Is your family income more than $31,900?"
-            }
-            else if(choice=="2"){
-                people=2;
-                qs[0].innerText="Is your family income more than $21,550?"
-                qs[1].innerText="Is your family income more than $43,100?"
-            }
-            else if(choice=="3"){
-                people=3;
-                qs[0].innerText="Is your family income more than $27,150?"
-                qs[1].innerText="Is your family income more than $54,300?"
-            }
-            else if(choice=="4"){
-                people=4;
-                qs[0].innerText="Is your family income more than $32,750?"
-                qs[1].innerText="Is your family income more than $65,500?"
-            }
-            else if(choice=="5"){
-                people=5;
-                qs[0].innerText="Is your family income more than $38,350?"
-                qs[1].innerText="Is your family income more than $76,700?"
-            }
-            else if(choice=="6"){
-                people=6;
-                qs[0].innerText="Is your family income more than $43,950?"
-                qs[1].innerText="Is your family income more than $87,900?"
-             }
-            else if(choice=="7"){
-                people=7;
-                qs[0].innerText="Is your family income more than $49,550?"
-                qs[1].innerText="Is your family income more than $99,100?"
-            }
-            else if(choice=="8+"){
-                people=8;
-                qs[0].innerText="Is your family income more than $55,150?"
-                qs[1].innerText="Is your family income more than $110,300?"
-            }
-        // }
-    });
-
-
-    const bs = document.getElementsByClassName("yes_no_button");
-    for(const b of bs){
-        b.addEventListener("click", function(){
-            b.classList.toggle("clicked");
-            document.getElementById("right_questions").style.display="block";
-        });
-    }
-
-
-    // *******
-}
-
-preSurveySetup();
-
-//setup(makeSurvey(surveyArray));
+//extraQuestions();
+setup(makeSurvey(surveyArray));
